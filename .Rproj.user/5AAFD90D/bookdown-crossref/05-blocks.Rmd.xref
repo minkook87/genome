@@ -1,0 +1,34 @@
+h1:kogo KOGO
+h2:ngs를-통한-중개연구-최무림 NGS를 통한 중개연구 (최무림)
+h3:질병의-유전학적-이해-및-정밀의학의-구현 질병의 유전학적 이해 및 정밀의학의 구현
+h3:ngs-methodology NGS methodology
+h3:dbs-data-repositories DBs & Data Repositories
+h4:public-database-data-repository-종류와-활용법 Public database, Data repository 종류와 활용법
+h4:public-data-repository-활용 Public data repository 활용
+h3:wes과-mendelian-질병-원인-규명법 WES과 Mendelian 질병 원인 규명법
+h3:rna-sequencing-데이터-분석 RNA sequencing 데이터 분석
+h4:bulk-rna-sequencing Bulk RNA-Sequencing
+h4:rna-seq-analysis-using-deseq2 RNA-seq analysis using DESeq2
+h3:single-cell-rna-sequening-데이터-분석 Single cell RNA sequening 데이터 분석
+h4:single-cell-rna-sequening-데이터-분석-실습 Single cell RNA sequening 데이터 분석 실습
+h3:somatic-disease의-유전체적-접근과-이해 Somatic disease의 유전체적 접근과 이해
+h3:wgs-데이터-분석 WGS 데이터 분석
+h2:chip-seq-염색질-3차-구조-분석-정인경 CHIP-seq 염색질 3차 구조 분석 (정인경)
+h2:단일세포전사체분석-개요-김종경 단일세포전사체분석 개요 (김종경)
+h2:바이오데이터마이닝을-위한-기계학습-황규백 바이오데이터마이닝을 위한 기계학습 (황규백)
+h2:한국인칩을-이용한-대규모-유전체정보-분석-김봉조 한국인칩을 이용한 대규모 유전체정보 분석 (김봉조)
+h2:유전체역학-박지완 유전체역학 (박지완)
+h3:genome-epidemiology Genome Epidemiology
+h3:genome-wide-association-study Genome-Wide Association Study
+h3:genome-sequencing-data-analysis Genome Sequencing Data Analysis
+h3:survival-analysis Survival Analysis
+h3:gene-enviroment-interaction Gene-Enviroment Interaction
+h3:mendelian-randomization-mr Mendelian Randomization (MR)
+h4:배경-및-기본이론 배경 및 기본이론
+h4:standard-mr-실습 Standard MR 실습
+h4:two-sample-mr-실습 Two-sample MR 실습
+h4:radial-실습 Radial 실습
+h4:result Result
+h2:단일세포-전사체-분석-기술을-이용한-암-연구-이세민 단일세포 전사체 분석 기술을 이용한 암 연구 (이세민)
+h2:빅데이터-분석-기법을-활용한-다중-오믹스-데이터-분석 빅데이터 분석 기법을 활용한 다중 오믹스 데이터 분석
+

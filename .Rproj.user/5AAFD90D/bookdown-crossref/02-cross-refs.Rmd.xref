@@ -1,0 +1,39 @@
+h1:bitec--statistical-methods-for-genetic-epidemiology BITEC- Statistical Methods for Genetic Epidemiology
+h2:statistical-genetics-basic-background1 Statistical Genetics Basic Background1
+h3:genetics Genetics
+h3:basic-principles Basic principles
+h3:definition Definition
+h3:mendelian-segregation Mendelian segregation
+h3:genotype-vs-phenotype Genotype vs phenotype
+h3:traits Traits
+h2:statistical-genetics-basic-background2 Statistical Genetics Basic Background2
+h3:genetic-markers Genetic markers
+h3:single-nucleotide-polymorphism Single Nucleotide Polymorphism
+h3:linkage-disequilibrium-ld Linkage Disequilibrium (LD)
+h3:ld-decays-over-generation LD decays over generation
+h3:idential-by-descent-ibd Idential By Descent (IBD)
+h2:segregation-analysis Segregation Analysis
+h2:linkage-analysis Linkage Analysis
+h2:single-variant-analysis Single Variant Analysis
+h3:tag-snp Tag SNP
+h3:ld-block-haploview LD Block (Haploview)
+h3:association-analysis Association analysis
+h3:genetic-association-studies Genetic Association studies
+h3:genome-wide-association-study-gwas Genome-wide association study (GWAS)
+h3:quality-control Quality Control
+h3:snp-genotype-encoding SNP genotype encoding
+h3:quantile-quantile-qq-plots Quantile-Quantile (QQ) plots
+h3:manhattan-plots Manhattan Plots
+h3:regional-plots Regional Plots
+h3:실제-데이터-분석-및-해석 실제 데이터 분석 및 해석
+h3:population-stratification Population Stratification
+h3:genotype-imputation Genotype Imputation
+h3:reference-data Reference data
+h2:ngs---rare-variant-analysis NGS - Rare Variant Analysis
+h3:missing-heritability Missing Heritability
+h3:post-gwas Post-GWAS
+h3:why-rare-variant Why rare variant?
+h3:snp-chips-can-detect-rare-variation SNP-chips can detect rare variation?
+h3:ngs NGS
+h3:rare-variants-analysis Rare Variants Analysis
+

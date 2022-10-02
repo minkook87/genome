@@ -1,0 +1,205 @@
+# etc.
+
+## 한국역학회
+
+### [역학연구 세미나 1차] GWAS의 이론과 실제
+
+  - 전장유전체연관성연구
+    - 전장유전체연관성연구(GWAS)는 인간의 유전체를 대표하는 많은 수의 SNP 마커를 사용하여 유전의 기능에 근거한 가설없이 질병 또는 양적형질에 연관된 유전변이를 발굴하는 유전 분석법임
+    - GWAS를 통해 다양한 질환(주로 common complex disease)을 대상으로 대규모 연구들이 진행되어 옴
+
+  - Common Disease Common Variants Hypothesis (CDCV)
+    - A few common allelic variants could account for the genetic variance in disease susceptibility -> GWAS
+  - Common Disease Rare Variants Hypothesis (CDRV)
+    - Multiple rare DNA sequence variants, each with relatively high penetrance, could account for the genetic variance in disease susceptibility
+
+<center>![](figures/311.png)</center>
+<center>![](figures/312.png)</center>
+
+  - GWAS design
+<center>![](figures/313.png)</center>
+    - *Replication study*: replication analysis with independent sample test
+
+<center>![](figures/314.png)</center> 
+    - Korea Biobank Array 이용하면 좀 더 좋은 결과를 얻을 수 있음
+    - Korea Biobank 자료는 이미 QC가 완료된 상태, MAF는 내가 정해줘야함
+
+<center>![](figures/315.png)</center> 
+<center>![](figures/316.png)</center>
+
+  - Genetic Variation (유전변이)
+    - 모든 사람은 개인 간에 약 99.9% 동일한 유전적 염기서열을 지니고 있고 약 0.1%만 개인 간의 차이를 보임
+    - 체세포 돌연변이(Somatic mutation): DNA 복제 과정에서의 오류가 체세포에서 일어나는 경우 새로운 돌연변이는 다음 세대에 전달되지 않음
+    - 성세포 돌연변이(Germline mutation): DNA 복제 과정에서의 오류가 정자나 난자의 발생과정에서 일어난다면 새로운 변이형은 다음 세대의 모든 세포 속으로 공통적으로 전달됨
+    - 돌연변이는 평균적으로 염기서열당 약 2.5x10^-8의 확률로 발생하는 것으로 추정됨
+
+  - Genetic Variation (유전변이) 종류
+    - **단일염기다형성**(SNP, single nucleotide polymorphism): 전체 인간 유전 변이형의 약 90% 이상을 차지, 단일염기다형성 마커는 전체 인간 유전체에 광범위하게 존재
+    
+<center>![](figures/317.png)</center>
+
+  - How to read the genome?
+    - Genotyping: Process of determining genetic differences between individuals by using a set of markers
+    - Sequencing: Process of determining the full nucleotide order of a DNA sequence
+  
+<center>![](figures/318.png)</center>
+<center>![](figures/319.png)</center>
+<center>![](figures/320.png)</center>
+<center>![](figures/321.png)</center>
+
+  - 유전자 재조합과 유전자 연관
+    - 감수분열 과정에서 염색체의 일부가 서로 교환하는 교차(crossover)가 일어남
+    - 모든 염색체에서 여러 번의 교차가 일어나며 이러한 교차로 인해 많은 대립 유전자들이 새로운 조합을 가지게 되며 이를 유전자 재조합(recombination)이라고 함
+    - 동일한 염색체에 존재하는 2개의 SNP site 간의 거리가 아주 멀면 감수분열 과정에서 교차(crossover)가 빈번히 발생하여 서로 다른 조합이 독립적으로 발생하게 됨
+    - 2개의 SNP가 매우 가까우면 2개의 SNP는 서로 연관(linked)되어 다음세대에 같이 전달 됨
+    
+<center>![](figures/322.png)</center>    
+
+  - 유전체 연관(LD, Linkage Disequilibrium)
+    - LD를 측정하는 방법으로 가장 많이 쓰이는 2가지 방법은 D'과 r2
+    - 두가지 측정치 모두 0 (no LD)에서 1 (complete LD) 사이의 값을 갖게 됨
+    - D' 값이 낮을수록 두 site 간에 강한 유전자 재조합이나 돌연변이가 일어났음을 의미함
+    - D'=0인 경우는 linkage equilibrim 상태로 두 locus는 대립유전자가 연관되어 있지 않고 임의로 유전자 재조합이 일어났다는 것을 의미함
+    - 주의할 점은 D'값이 0~1 사이의 중간치를 가질때 D'값이 의미가 명확하지 않다는 점임, 즉 D'이 0.3, 0.7일 때 LD의 정도 차이가 얼마나 다르냐는 것을 명확히 말할 수 없음
+    - LD를 측정하는 다른 방법으로 r2이 있고 두 마커 간의 통계적인 상관성이 얼마나 있느냐를 나타내는 척도로 쓰임
+    - r2 또한 0에서 1사이의 값을 가질 수 있고 r2=1은 perfect LD를 의미하며 이 경우 2개의 haplotype만 존재하게 됨
+    - 보통 r2 > 1/3이면 강한 LD가 있다고 말할 수 있음
+    - r2가 많이 사용되는 이유는 하나의 SNP가 다른 SNP를 얼마나 잘 대신해 줄 수 있는지를 나타내는 척도가 되기 때문임
+    - r2 값도 두 유전자의 재조합이나 돌연변이에 영향을 받음
+    - 두 유전 마커 간에 D'=1이면 complete LD에 있다고 말하고 r2=1이면 perfect LD에 있다고 말함
+    - D'=1인 경우에 두 유전 마커 간에는 동일한 마커가 100% 연관되어 있지 않지만, r2=1인 경우에는 두 유전 마커 간에 100% 연관되어 있어 항상 동일한 조합의 마커로 존재하게 됨, 따라서 r2 값이 D'값보다 더 엄격함을 알 수 있음 <br><br>
+    
+  - Genotype imputation
+
+<center>![](figures/323.png)</center>  
+
+  - 유전체 정보 정도관리
+
+<center>![](figures/324.png)</center> 
+
+  - Association testing
+    - GWAS에서 확인된 연관성 (association)은 특별한 유전적 현상이 아니라 특정 유전자형(allele)과 표현형이 동시에 발생함을 나타내는 단순한 통계적 관계일 수 있음
+      - 질병의 직접적인 원인이 되는 경우
+      - 질병 원인 유전자가 주변에 위치한 변이형과 LD 상태에 있는 경우
+      - 특정 유전자형과 질병이 자연적으로 선발을 받는 경우
+      - 집단 간 유전적 조성 차이에 의한 연관성
+      - 제1형 오류(type 1 error)에 의한 경우
+      
+  - Significance levels
+    - 과거에는 한-두개 유전변이형 마커에 대한 연관성 분석을 수행하였기 때문에 다중비교(multiple comparison)에 의한 오류는 큰 문제가 되지 않았음
+    - 그러나 최근에는 엄청난 수의 유전변이형 마커가 질병 연관성 연구에 활용되면서 다중검정의 문제가 발생함
+    - 다중 검정의 문제점을 극복할 수 있는 다양한 통계적 기법들이 개발되어 활용됨
+    - 대표적인 방법으로 Bonferroni correction 방법, false discovery rate (FDR) 방법 및 permutation test 등이 있음 <br><br>
+    - Bonferroni correction
+      - 전통적으로 가장 많이 사용되어온 방법임
+      - 사용하기 간단하고 유용한 방법임
+      - 임의 유의수준을 총 검사한 개수로 나누어 주는 것임
+      - 유의수준을 5%로 설정하면 Bonferroni correction에 의한 새로운 유의수준은 P-value=0.05/N
+        - 100만개의 가설에 테스트 한다면 0.05/1,000,000 = 5x10-8
+      - 조사하는 가설 수가 증가할수록 유의수준이 급격히 감소함
+      - 수행하는 검사의 수가 많은 경우 너무 엄격하여 파워가 크게 감소하는 단점을 가지고 있음
+      - 개별적인 SNP들이 모두 독립적으로 관여하는 경우에는 N으로 나눌 수 있지만 많은 SNP들은 LD block 내에서 서로 연관되어 있기 때문에 N으로 나누면 너무 엄격한 기준이 적용되는 것임<br><br>
+    - FDR (false discovery rate)
+      - Benjamini-Hochberg procedure라고도 함
+      - 유의하다고 판정한 가설 중, 실제로 유의하지 않은 가설의 비율을 조정하는 방법
+      - 모든 마커의 p-value를 작은 것부터 큰 것으로 오름차순 정령을 한 후, 개별 테스트의 p-value를 각각 다르게 적용시키는 방법임
+      - p-value가 낮은 마커일 수록 엄격한 p-value를 기준을 적용함
+
+<center>![](figures/325.png)</center> 
+<center>![](figures/326.png)</center>
+<center>![](figures/327.png)</center>
+<center>![](figures/328.png)</center>
+
+### [역학연구 세미나 2차] Genome Wide Interaction Study
+
+  - Genome-Wide Association Study (GWAS)
+    - Designed to detect genetic variants associated with complex traits or diseases in the entire genome
+    - Provide key insights into aspects of the underlying allelic architecture of human diseases
+    - Risk prediction, drug response and toxicity
+
+<center>![](figures/329.png)</center>
+
+  - Heritability
+    - Defined as the proportion of total variance due to additive genetic (narrow-sense heritability) or total genetic (broad-sense heritability) variances
+    - A major population parameter measuring the contribution of genetic factors to complex traits Missing Heritability
+    - Despite successful findings from previous GWASs, a substantial amount of heritability remains unclear
+    - Remains are termed "the missing heritability"
+
+<center>![](figures/330.png)</center>
+
+  - Gene-by-Environment Interaction (GxE)
+    - Defined as a joint effect of genetic susceptibility loci with environmental factors which are not explained by their marginal effects separately
+    - Used to provide insights into the biology of complex diseases, detect high-risk groups in a population, and develop better prognostic or prediction models
+    
+  - Candidate-Gene Approach and GWIS
+    - Candidate GxE Studies tend to provide more power, if the assumption about candidate loci is appropriate
+    - These studies are incapable of finding novel genes
+    - GWASs and GWISs are labeled as hypothesis-free methods; these studies have low power due to the number of analyses performed independently
+    - GWISs focus on the estimate of effect differences between subgroups stratified by each G and E, not the genetic effects on marginal associations
+    
+  - Current  Challenges
+    - Low statistical power of detecting interactions
+    - Candidate-gene approaches
+    - Depend on a set of markers identified from previous studies (large-scale consortium-based GWASs)
+    - Require much larger sample sizes for GWISs
+    - Complexity of assessing exposures and considering temporality of environmental factors
+    - Measurement errors or scale dependences
+    - Lack of functional data on GxE variants
+
+### [역학연구 세미나 3차] 정신역학, 공간 및 베이즈 역학
+
+### [역학연구 세미나 4차] 건강검진, 심혈관질환 영역에서 역학
+
+### [역학연구 세미나 5차] 암역학, 음주와 암
+
+#### EWAS and meditation analysis
+
+  - 후성유전체연관성분석연구 ~ DNA methylation
+  - Infinium HumanMethylation450 Beadchip
+  - Beta-value and M-value (Normalization)
+  - An epigenome-wide association study (EWAS) is an examination of a genome-wide set of quantifiable epigenetic marks, such as DNA methylation, in different individuals to derive associations between epigenetic variation and a particular identifiable phenotype/trait.
+
+<center>![](figures/388.png)</center>
+<center>![](figures/389.png)</center>
+<center>![](figures/390.png)</center>
+<center>![](figures/391.png)</center>
+<center>![](figures/392.png)</center>
+<center>![](figures/393.png)</center>
+<center>![](figures/394.png)</center>
+<center>![](figures/395.png)</center>
+<center>![](figures/396.png)</center>
+
+#### 음주와 암 발생 인과관계 연구방법론 (Mendelian Randomization)
+
+<center>![](figures/397.png)</center>
+<center>![](figures/398.png)</center>
+<center>![](figures/399.png)</center>
+<center>![](figures/400.png)</center>
+
+### [역학연구 세미나 6차] 공간역학 기초과정 워크숍
+
+### [역학연구 세미나 7차] 건강검진, 심혈관질환 영역에서 역학
+
+### [역학연구 세미나 8차] 노화역학, 환경역학
+
+### [역학연구 세미나 9차] 지역사회기반중재효과, 약물역학
+
+### [역학연구 세미나 10차] 구강역학, Data Science
+
+
+### 2022년 동계연수교육 유전체 역학 및 다중오믹스 분석방법
+
+#### 유전체 역학의 소개
+
+  - Epidemiology: The study of the distribution, determinants [and control] of health-related states and events in populations (Last J. A dictionary of epidemiology. 2001)
+  - Genetic epidemiology: A science which deals with the etiology, distribution, and control of disease in groups of relatives and with inherited causes of disease in population (Morton NE. Outline of Genetic Epidemiology. 1982, Morton NE. Ann Hum Genet. 1997, Boslaugh. Encyclopedia of Epidemiology. 2007)
+
+<center>![](figures/401.png)</center>
+
+
+
+#### 한국인 칩을 이용한 대규모 유전체 정보 분석
+
+#### GWAS/후보유전자연구
+
+    

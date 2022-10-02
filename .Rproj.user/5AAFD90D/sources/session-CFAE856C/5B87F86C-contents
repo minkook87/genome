@@ -1,0 +1,477 @@
+# BITEC- Statistical Methods for Genetic Epidemiology
+
+본 자료는 BiTEC MOOC (http://bioinformatics.docuhut.com/) 자료를 참조하여 작성되었습니다.
+
+
+## Statistical Genetics Basic Background1
+
+### Genetics
+ - Science of inheritance
+ - Concerned with differences/similarities of individuals resulting from the mechanisms of genetic material
+ - Same root as in generations
+ - Genetics와 Environment를 동시에 고려
+<center>![](figures/55.png)</center>
+<br><br>
+
+### Basic principles
+  - Genotype
+    - Genetic makeup
+    - all the DNA received from the mother and father
+    - generally considered constant over time
+  - Phenotype
+    - Appearance of the individual, what is measured
+    - disease status/blood pressure/weight
+    - changes over time
+    - depends on genotype and environment
+    - phenotype = F(genotype, environment)
+  - Physical basis of the human genotype
+    - 46 chromosomes = 23 from father + 23 from mother = 23 pairs of chromosomes
+    - 22 pairs of similar autosomes (homologous autosomes)
+    - 1 pair of sex chromosome (X,Y)
+    - XX = Female, XY = Male
+    - cytoplasm - mitochondrial DNA
+    - 예전에는 염색체 길이로 번호를 매김
+    - chromosome에는 tightly packed DNA 존재 -> Histone 단백질에 DNA가 감겨있어서 풀기 쉽게 되어있음
+<center>![](figures/56.png)</center><br>    
+<center>![](figures/57.png)</center><br> 
+<center>![](figures/58.png)</center><br> 
+- 모든 유전체 역학은 meiosis에 기반하여 분석을 하게됨 <br>
+- Meiosis 과정 중에 crossover(recombination) 발생 <br>
+
+<center>![](figures/59.png)</center>
+<br><br>
+
+### Definition
+  - Gene: DNA segment that codes for a functional unit; made up of exons interspersed with introns
+  - Locus: Location of a gene (or genes) on a chromosome
+    - the gene that codes for the ABO blood type protein is on chromosome #9
+  - Alleles: different forms of a gene, or different genes, that occupy the same locus
+    - the alleles for the ABO blood type are all found at a specific locus on chromosome #9
+  - Allelic: "Genes" that occupy the same locus
+  - Non-Allelic: "Genes" that occupy different loci (for instance,, the gene for albinism) ^[하나의 gene에 대해 하나의 phenotype을 분석, 따라서 유전체 역학의 경우 non-allelic한 경우 분석이 어려울 수 있음]
+  - Linkage: alleles at different loci that are close together on the same sinlge chromosome tend to stay together because the probability of a crossvoer is small
+<br><br>
+
+### Mendelian segregation
+  - Mendel's first law: Law of segregation
+    - for a given locus, each parent transmits one allele, either the maternal allele or the paternal allele, independently to each offspring (zygote)
+<center>![](figures/60.png)</center><br>
+<center>![](figures/61.png)</center><br>
+<center>![](figures/62.png)</center>
+<br><br>
+
+### Genotype vs phenotype
+  - Genotype: the specific genetic constitution of an organism
+  - Phenotype: the observable expression of the genotype (and the environment)
+  - Phenoset: set of all genotypes consistent with an individual''s phenotype
+  - Dominance vs Recessiveness
+    - Classically refer to the situation in which the expression of one allele in a heterozygote masks the other at a particular locus
+  - Codominance: both alleles are expressed in the heterozygote, or the heterozygote phenotypic expression differs from that of either homozygote 
+  - Overdominance: the phenotypinc expression of the heterozygote dose not lie between those of the homozygotes
+<center>![](figures/63.png)</center><br>
+  - The phenotype can vary among persons with the same genotype, from no disease to variable degrees of severity (expressivity)
+    - Penetrance: probability of disease given the the genotype (not everyone with the genotype will be affected)
+    - complete penetrance: 질병의 걸릴 확률이 0이나 1
+    - incomplete penetrance: 많은 만성질환이 여기에 해당
+    - sporadic: refers to the presence of a phenotype even though the genotype usually producing it is absent ^[유전체 역학에서는 고려하지 않는 것이 좋을 수 있음]
+    - variable expressivity
+    - imprinting: the phenotype depends on the sex of the transmitting parent
+  - Epistasis: interaction between alleles situated at different loci (interaction)
+  - Epistasis is inter-locus interaction (between alleles at different loci), whereas dominance is intra-locus interaction (between alleles at the same locus)
+<br><br>
+  - Phenotypic differences can be caused by allelic variation at:
+    - single locus: monogenic (unilocal)
+    - few loci: oligogenic (paucilocal)
+    - many loci: polygenic (multilocal)
+    - Any of the above + environment = multifactorial
+
+### Traits
+<center>![](figures/64.png)</center> <br>
+
+## Statistical Genetics Basic Background2
+
+### Genetic markers
+  - Selections of DNA that generally satisfy the following:
+    - We know where (locus) they are in the genome
+    - We have the ability to examine (genotype) them
+    - Different variants (alleles) exist in the population
+  - Note that everyone has almost identical chromosome and genetic contents (DNA and genes)
+
+  - Blood group (ABO) (< 1980)
+  - RFLPs - restriction fragment length polymorphisms; 2 alleles (1980-1990)
+  - Microsatellites - repeat sequences of 2,3,4 base pairs; many alleles (1990-?)
+  - SNPs - single nucleotide polymorphisms; single nucleotide substitution; usually 2 alleles (1995-?)
+
+### Single Nucleotide Polymorphism
+<center>![](figures/65.png)</center><br>
+
+  - SNP는 통상적으로 MAF 5% 이상인 것으로 통상 지칭함
+  - DNA sequence variations that occur when a single nucleotide is altered
+  - SNPs are the most common form of variation in the human genome
+  - Alleles: one of a number of alternative forms of the same gene or same genetic locus
+  - Alleles at this SNP are "C" and "T" (minor/major alleles)
+<center>![](figures/66.png)</center><br>
+<center>![](figures/67.png)</center><br>
+
+  - 통계 분석을 위해 major allele는 1, minor allele는 0으로 코딩
+  - Haplotype
+    - A set of linked SNPs on the same chromosome
+    - Alleles received together from one parent
+
+### Linkage Disequilibrium (LD)
+  - LD: the non-random association of alleles at two or more loci
+<center>![](figures/68.png)</center><br>
+<center>![](figures/69.png)</center><br>
+<center>![](figures/70.png)</center><br>
+<center>![](figures/71.png)</center><br>
+
+### LD decays over generation
+  - 감수분열을 몇 번 했는지, 얼마나 멀리 떨어져있는지가 LD에 영향을 끼침
+<center>![](figures/72.png)</center><br>
+  - m과 보라색이 같이 나오는 빈도수가 멀리 떨어질수록 줄어듬
+<center>![](figures/73.png)</center><br>
+
+### Idential By Descent (IBD)
+  - Two alleles are identical by descent if they are copies of the same ancestral allele
+  - A2는 IBD 관계에 있음 (같은 유전자가 다음 세대에 넘어간 경우)
+  - A1는 50% 확률로 IBD일수도 있고 아닐수도 있음
+<center>![](figures/74.png)</center><br>
+  - Identical in state (IIS): 염기만 같은 경우
+  - Alleles that are IBD are also IIS
+  - We speak of the number of or proportion of alleles shared IBD by two individuals
+    - Monozygotic twins have two alleles IBD at every locus
+    - If the two parents ae unrelated, a parent and child share exactly one allele IBD at every locus
+    - Siblings may have 0, 1, or 2 alleles IBD at a given locus
+    - In a large random mating population, two unrelated persons share 0 alleles IBD at every locus
+<center>![](figures/75.png)</center><br>
+
+## Segregation Analysis
+  - 유전체 데이터 없이 phenotype을 가족관계에서 확인하여 분석하는 방법
+    - Aggregation: 어떤 질병에 대해 가족 내에 다른 구성원이 질병을 가지고 있는 경우
+    - Segregation: 질병이 우성, 열성인지 확인
+    - Co-segregation
+    - Association: 어떤 유전체 마커와 질병 사이에 연관성 분석 
+  - Studying Complex Diseases
+<center>![](figures/76.png)</center><br>  
+
+## Linkage Analysis
+<center>![](figures/77.png)</center><br>  
+<center>![](figures/78.png)</center><br>
+<center>![](figures/79.png)</center><br>
+<center>![](figures/80.png)</center><br>
+<center>![](figures/82.png)</center><br>
+
+  - Linkage analysis look for relationship between a marker and disease within a family
+  - All 4 loci are 'linked' to the disease allele within each of 3 families
+  - Model-based: assume mode of inheritance for disease
+  - Model-free: no assumption
+
+## Single Variant Analysis
+  - Association analysis look for relationship between a marker and disease between families
+  - Association analysis: LD를 이용하여 모든 유전자를 모르더라도 분석을 해볼 수 있음 (indirect)
+  - GWAS(전장유전체분석)는 샘플을 많이 필요로 함
+<center>![](figures/81.png)</center><br>
+
+### Tag SNP
+  - Marker selection: Empirical studies suggest that much of the genome can be characterized as blocks of strong LD with low haplotype diversity between blocks
+  - Haplotype Tagging SNPs (htSNPs)
+    - Typing all SNPs in regions of high LD would be redundant
+    - A reduced set of SNPs (htSNPs) can sufficiently represent much of common haplotype diversity in that region and reduce genotyping costs
+    - Methods for identification of htSNPs
+      - Regions of high LD are defined into blocks
+      - Tagging SNPs are selected within each block
+      - Identifying makers that represent the entire region in question
+
+### LD Block (Haploview)
+<center>![](figures/83.png)</center><br>
+
+  - 일부만 genotyping 해서도 분석이 가능하기 때문에 비용을 줄여줄 수 있음
+  - 일부의 genotyping 자료에서 reference 자료를 활용하여 imputation 알고리즘을 통해 복원 가능하고 분석 가능함
+  - 따라서 chip 데이터는 전체 데이터를 genotyping 하는 것이 아니고 일부만 genotyping을 함
+  - 인종이 몇 세대를 거침에 따라서 crossover 과정이 발생하여 LD block의 size가 줄어들 수 있음
+  - 따라서 해당하는 나라와 인종에 맞는 디자인이 있어야만 정확하게 전체 유전자를 커버하는 칩을 제작할 수 있음 - (Korean Chip, 비용이 대략 11만원 정도)
+  
+<center>![](figures/84.png)</center>
+
+  - Tag SNP 디자인 하기 위해 사용하는 reference 데이터 사이트
+  - 두 데이터에 한국인 데이터는 없음
+
+### Association analysis
+  - Detect association between genetic variants and disease across families: exploit linkage disequilibrium
+  - Studies with unrelated individuals
+    - Case-control, Cohort designs ^[우리나라의 경우 안성/안산 코호트 데이터를 활용해서 병원데이터와 함께 사용하기도함]
+  - Family-based studies
+    - Parents-affected child trios (TDT)
+  - Appropriate for complex diseases
+  - Allele/genotype frequencies
+  
+### Genetic Association studies
+  - Candidate gene (locus) testing (direct method)
+  - LD mapping (indirect method)
+    - Exploitation of relationship between LD and genetic distance
+    - Testing for LD between markers and disease allele
+    - Search for disease gene across the entire human genome
+    - Association scan uses ~1M markers
+
+### Genome-wide association study (GWAS)
+
+  - Aims to identify which regions (or SNPs) in the genome are associated with disease or certain phenotype
+  - Design
+    - Identify population structure
+    - Select case subjects (those with disease)
+    - Select control subjects (healthy)
+    - Genotype a million SNPs for each subject
+    - Determine which SNP is associated
+
+<center>![](figures/85.png)</center><br>
+<center>![](figures/86.png)</center><br>
+
+  - plink는 좋은 툴이나 고급분석을 하는 것에는 한계가 있어서 data management에만 이용 -> 나온 결괴를 R을 이용해서 분석함
+  - plink는 allele이 2개인 경우에만 분석 가능
+  
+<center>![](figures/87.png)</center><br>
+
+  - 데이터 용량이 매우 큼, 따라서 binary file을 이용해서 분석하는 경우가 훨씬 많음
+  
+### Quality Control
+
+<center>![](figures/88.png)</center><br>
+<center>![](figures/89.png)</center><br>
+<center>![](figures/90.png)</center><br>
+
+  - Hardy-Weinberg Equilibrium (HWE)
+    - Both allele and genotype frequencies in a population remain constant (that is, they are in equilibrium) from generation to generation unless specific disturbing influences are introduced
+    - Assumptions for HWE
+      - Large population
+      - Random mating
+      - No migration
+      - No mutation
+      - No selection
+    - For genetic association studies:
+      - Used as QC measure to assess the accuracy of the genotyping method
+      - Expect SNPs to be in HWE among control populations (ethnic-specific)
+      - Violations of HWE could indicate genotyping errors or bias in data
+
+<center>![](figures/91.png)</center><br>
+<center>![](figures/92.png)</center><br>
+
+  - Missingness
+
+<center>![](figures/93.png)</center><br>
+
+  - Individual filtering
+    - Cryptic relatedness
+    - Sex inconsistency
+
+<center>![](figures/94.png)</center><br>
+<center>![](figures/95.png)</center><br>
+
+### SNP genotype encoding
+  - If SNP is A/B then count number of times we see B.
+  - Now we have data in numerical format
+  - Cochran Armitage test (recommend)
+  - Multiple testing problem
+    - Assume that individual tests (each p-value) are independent
+    - Divide the desired p-value threshold by the number of tests performed
+    - You have done 10,000 hypothesis testings
+    - 0.05 / 10000 = 5 x 10^(-6) ^[최근에는 p-value를 5 x 10^(-8)을 많이 쓰기도 함, 0.05 / 1,000,000]
+
+<center>![](figures/96.png)</center><br>
+
+### Quantile-Quantile (QQ) plots
+  - Very important
+  - When a study identifies a marker that shows evidence of association with a disease, it is common to estimate the impact of this variant on the phenotype of interest
+    
+<center>![](figures/97.png)</center><br>
+
+  - a: 실제 관찰된 모든 SNP들의 p-value와 영가설이 참이라고 했을 떄 계산이 된 p-value를 비교, 검정통계량은 문제가 없으나 유의한 결과는 없는 경우
+  - b: 실제 관찰된 모든 SNP들의 p-value이 좀 작은 경향을 보임, 일괄적으로 bias가 있는 경우, 분석이 잘못됨
+  - c: bias가 있으면서 유의한 결과가 있는 경우
+  - d: 검정이 잘되었으면서 유의한 결과가 있는 경우 (이렇게 나와야함)
+
+### Manhattan Plots
+  - A genome-wide association study is an approach that invovles rapidly scanning markers across the complete sets of DNA, or genomes, of many people to find genetic variations associated with a particular disease
+  - p-value는 1 x 10^(-7) or 5 x 10^(-8)을 사용
+
+<center>![](figures/98.png)</center><br>
+
+### Regional Plots
+  - 주변에 어떤 gene들이 있는 지 확인 가능
+  - 색깔은 유전자들 사이의 연관성을 표현함
+
+<center>![](figures/99.png)</center><br>
+
+### 실제 데이터 분석 및 해석
+
+<center>![](figures/100.png)</center><br>
+<center>![](figures/101.png)</center><br>
+
+  - Pattern1: 유의한 결과가 너무 많음, QQ plot도 엉망, Case/Control이 안맞았던 경우
+  - Pattern2: 적당한 결과, QQ plot이 살짝 벗어나 있음, Population substructure 문제가 있었음
+  - Pattern3: ideal
+  
+### Population Stratification
+  - 교란변수의 개념 (특히 인종에 영향을 많이 받음)
+  - Population Stratification stems from the fact that populations are typically heterogeneous in terms of genetic ancestry.
+  - Chopstick eating is more prevalent in Korean than in Europeans and the genotyping frequencies are also different between two population
+  
+<center>![](figures/102.png)</center><br>
+<center>![](figures/103.png)</center>
+
+  - Population Stratification을 해결하기 위해 가장 많이 쓰이는 방법, 유전자의 유사도를 계산
+  - Population Stratification stems from the fact that populations are typically heterogenous in terms of genetic ancestry
+
+> Summary <br>
+1. GWAS work <br>
+2. Effect-sizes are modest for common variants (mostly increases by 1.1-1.5) <br>
+3. Power to detect associations has been low <br>
+4. Association studies have identified regions rather than casual genes <br>
+5. A single locus may contain more than one risk variant <br>
+6. A single locus may contain both common and rare variants <br>
+7. There is great variation between ethnic groups.
+
+### Genotype Imputation
+  - Purpose of imputation
+    - Combining different arrays
+    - Exploration of untyped variants
+    - Filling-in of Missing data
+    - Genotyping error detection
+  
+  - Eventually, imputation allows
+    - Increased power
+    - Fine-mapping
+    - Meta-analysis
+    
+<center>![](figures/104.png)</center><br>
+<center>![](figures/105.png)</center><br>
+<center>![](figures/106.png)</center><br>
+<center>![](figures/107.png)</center><br>
+<center>![](figures/108.png)</center><br>
+<center>![](figures/109.png)</center><br>
+<center>![](figures/110.png)</center><br>
+<center>![](figures/111.png)</center><br>
+<center>![](figures/112.png)</center><br>
+
+  - IMPUTE and MACH를 사용하는 것이 보편화
+  - IMPUTE and IMPUTE2 attempt to design algorithms for imputation based on Population genetics model and HMM computation
+  - Extensive experiments suggests that IMPUTE2 is reasonably accurate and can make good use of reference data set available for GWAS
+
+### Reference data
+  - Imputation을 위해서는 반드시 reference data가 필요
+  - 1000 Genome Project
+    - https://www.internationalgenome.org/data
+  - 국립보건원 400 whole genome data
+    - https://nih.go.kr/contents.es?mid=a40505010100
+  - The Haplotype Reference Consortium (recommend)
+    - http://www.haplotype-reference-consortium.org/
+
+## NGS - Rare Variant Analysis
+  - Association analysis 및 GWAS의 경우 SNP chip을 이용한 분석으로 common variant (MAF > 5%)를 찾기 위해 디자인
+  - NGS를 이용해 분석하는 경우 rare variant를 고려해야함
+
+### Missing Heritability
+
+<center>![](figures/113.png)</center><br>
+
+  - GWAS에서 유의한 p-value가 너무 까다로워서 population의 n이 많이 필요해지면서 놓친게 아닐까?
+  - GTCA program (a tool for Genome-wide Complex Trait Analysis) ^[연구를 위해 많이 활용되고 있는 프로그램]
+
+<center>![](figures/114.png)</center><br>
+<center>![](figures/115.png)</center><br>
+
+### Post-GWAS
+  - Common Disease Common Variant Model
+  - Infinitesimal Model
+  - Rare Allele Model 
+    - Signal이 noise에 뭍히는 경우가 많음
+    - 가족 기반 데이터가 필요로 함
+  - Broad sense heritability Model
+    - G x E
+    - 환경에 따라 유전자 발현이 달라짐
+  
+<center>![](figures/116.png)</center><br>  
+<center>![](figures/117.png)</center><br>
+
+### Why rare variant?
+  - Evolutionary Theory
+  - Most SNPs are rare
+  - Rare alleles are enriched with functional variants
+  - Most rare missense mutations are functionally deleterious
+  - The discovery of rare independent somatic mutations within and across genes that contribute to tumorigenesis
+  - The identification of multiple rare variants within the same gene that contribute to largely monogenic disorders such as cystic fibrosis and BRCA1 and BRCA2-associated breast cancer
+  - Sequencing studies focusing on specific genes have show that collections of rare variants can associate with particular phenotypes
+  - Synthetic Association
+    - Synthetic association describes the situation in which the association of a common variant with a disease is actually due to linkage disequilibrium (LD) between the common variant and several disease-promoting rare variants that happen to segregate on the same haplotype
+
+<center>![](figures/118.png)</center><br>
+
+  - b, c, d의 관련한 분석이 필요하나 쉽지 않음, 따라서 NGS를 통한 rare variant 분석이 필요함
+  - Analysis of GWAS data is not consistent with rare variant explanations
+
+<center>![](figures/119.png)</center><br>
+
+### SNP-chips can detect rare variation?
+  - SNP-chips use common SNPs (MAF > 5%)
+  - Variation in common SNPs account for only a small fraction (1-10%) of total genetic risk
+  - GWAS works because common SNPs mark the blocks that harbor a multitude of rare variants that are causal
+  - Therefore for associations with rare variants it is necessary to perform direct mapping and rare variants within a sample must first be identified
+  - SNP-chips으로는 rare variants를 커버하기 힘듬
+  - Sequencing of candidate genes or entire genomes is the optimal way to identify rare variants
+
+<center>![](figures/120.png)</center><br>
+
+### NGS
+  - High throughput sequencing
+  - Faster & Cheaper
+  - SNP-chips 보다 훨씬 정확하고 많은 유전 정보를 제공
+  - WGS (FASTQ) 시행 후 variant calling, PLINK를 이용하여 분석
+  - Genome Analysis Toolkit (GATK) ^[요새는 파이프라인으로 잘 구축되어 variant calling까지 해줌]
+
+<center>![](figures/121.png)</center><br>
+<center>![](figures/122.png)</center><br>
+
+  - 가족 데이터를 사용하면 rare variant 분석을 좀 더 쉽게 할 순 있겠지만 현실적으로 어려움 (게다가 우리나라의 경우 핵가족이라 더 어렵다)
+
+  - rare variant를 뭉쳐서 score를 만들고 common variant를 만들어 통계분석
+
+<center>![](figures/123.png)</center><br>  
+<center>![](figures/124.png)</center><br> 
+
+  - Which variants should be combined?
+    - Gene-based
+    - MAF-based
+  - If both deleterious and protective SNVs are in a gene, the type 2 error can be very large
+
+
+### Rare Variants Analysis
+<center>![](figures/125.png)</center><br> 
+
+  - Combined Multivariate and Collapsing (CMC)
+  - WSS
+  - C - alpha
+  - SKAT, SKAT-O (recommend)
+  - Procedure for Association Analysis
+    - Single Variant Analysis
+      - check qqplot whether there is any violation
+      - If there is some violation, such as population stratification, it should be considered for rare variant analysis
+    - Rare Variant Analysis
+      - apply different types of statistical methods
+      - discard p-values for genes with MAC < 5 (or 10)
+      - check qqplot for p-values from rare variant analysis
+    - Followup Studies
+      - Imputation
+      - Typing New Samples
+
+
+
+
+
+
+
+
+
+
+
+
+
+

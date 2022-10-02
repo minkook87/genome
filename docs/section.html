@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8.1 2017 | Genetics with Bioinformatics</title>
+  <meta name="description" content="8.1 2017 | Genetics with Bioinformatics" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8.1 2017 | Genetics with Bioinformatics" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8.1 2017 | Genetics with Bioinformatics" />
+  
+  
+  
+
+<meta name="author" content="Minkook Son" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="articles.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Genetics with Bioinformatics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="chapter" data-level="1" data-path="bitec---rbioconductor.html"><a href="bitec---rbioconductor.html"><i class="fa fa-check"></i><b>1</b> BITEC - R/Bioconductor</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html"><i class="fa fa-check"></i><b>1.1</b> Introduction for microarrays</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#transcriptome-analysis"><i class="fa fa-check"></i><b>1.1.1</b> <strong>Transcriptome analysis</strong></a></li>
+<li class="chapter" data-level="1.1.2" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#genome-analysis"><i class="fa fa-check"></i><b>1.1.2</b> <strong>Genome analysis</strong></a></li>
+<li class="chapter" data-level="1.1.3" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#microarray-technologies"><i class="fa fa-check"></i><b>1.1.3</b> Microarray Technologies</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#cdna-array-expression-level-numeric-assessment"><i class="fa fa-check"></i><b>1.1.4</b> cDNA array: Expression level numeric assessment</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#probe-set"><i class="fa fa-check"></i><b>1.1.5</b> Probe set</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="quality-control-in-microarrays.html"><a href="quality-control-in-microarrays.html"><i class="fa fa-check"></i><b>1.2</b> Quality control in microarrays</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="quality-control-in-microarrays.html"><a href="quality-control-in-microarrays.html#microarray-analysis-procedure"><i class="fa fa-check"></i><b>1.2.1</b> microarray analysis procedure</a></li>
+<li class="chapter" data-level="1.2.2" data-path="quality-control-in-microarrays.html"><a href="quality-control-in-microarrays.html#goals-of-microarray-studies"><i class="fa fa-check"></i><b>1.2.2</b> Goals of microarray studies</a></li>
+<li class="chapter" data-level="1.2.3" data-path="quality-control-in-microarrays.html"><a href="quality-control-in-microarrays.html#deg-identification"><i class="fa fa-check"></i><b>1.2.3</b> DEG identification</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html"><i class="fa fa-check"></i><b>1.3</b> Normalization for microarray experiments</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#variation-in-microarray-experiment"><i class="fa fa-check"></i><b>1.3.1</b> Variation in microarray experiment</a></li>
+<li class="chapter" data-level="1.3.2" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#normalization-goals"><i class="fa fa-check"></i><b>1.3.2</b> Normalization: Goals </a></li>
+<li class="chapter" data-level="1.3.3" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#global-vs-intensity-dependent-normalization"><i class="fa fa-check"></i><b>1.3.3</b> Global vs Intensity-dependent normalization</a></li>
+<li class="chapter" data-level="1.3.4" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#normalization-for-one-channel-slide"><i class="fa fa-check"></i><b>1.3.4</b> Normalization for one channel slide</a></li>
+<li class="chapter" data-level="1.3.5" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#conclusion"><i class="fa fa-check"></i><b>1.3.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>1.4</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bitec--statistical-methods-for-genetic-epidemiology.html"><a href="bitec--statistical-methods-for-genetic-epidemiology.html"><i class="fa fa-check"></i><b>2</b> BITEC- Statistical Methods for Genetic Epidemiology</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html"><i class="fa fa-check"></i><b>2.1</b> Statistical Genetics Basic Background1</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#genetics"><i class="fa fa-check"></i><b>2.1.1</b> Genetics</a></li>
+<li class="chapter" data-level="2.1.2" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#basic-principles"><i class="fa fa-check"></i><b>2.1.2</b> Basic principles</a></li>
+<li class="chapter" data-level="2.1.3" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#definition"><i class="fa fa-check"></i><b>2.1.3</b> Definition</a></li>
+<li class="chapter" data-level="2.1.4" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#mendelian-segregation"><i class="fa fa-check"></i><b>2.1.4</b> Mendelian segregation</a></li>
+<li class="chapter" data-level="2.1.5" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#genotype-vs-phenotype"><i class="fa fa-check"></i><b>2.1.5</b> Genotype vs phenotype</a></li>
+<li class="chapter" data-level="2.1.6" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#traits"><i class="fa fa-check"></i><b>2.1.6</b> Traits</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html"><i class="fa fa-check"></i><b>2.2</b> Statistical Genetics Basic Background2</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#genetic-markers"><i class="fa fa-check"></i><b>2.2.1</b> Genetic markers</a></li>
+<li class="chapter" data-level="2.2.2" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#single-nucleotide-polymorphism"><i class="fa fa-check"></i><b>2.2.2</b> Single Nucleotide Polymorphism</a></li>
+<li class="chapter" data-level="2.2.3" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#linkage-disequilibrium-ld"><i class="fa fa-check"></i><b>2.2.3</b> Linkage Disequilibrium (LD)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#ld-decays-over-generation"><i class="fa fa-check"></i><b>2.2.4</b> LD decays over generation</a></li>
+<li class="chapter" data-level="2.2.5" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#idential-by-descent-ibd"><i class="fa fa-check"></i><b>2.2.5</b> Idential By Descent (IBD)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="segregation-analysis.html"><a href="segregation-analysis.html"><i class="fa fa-check"></i><b>2.3</b> Segregation Analysis</a></li>
+<li class="chapter" data-level="2.4" data-path="linkage-analysis.html"><a href="linkage-analysis.html"><i class="fa fa-check"></i><b>2.4</b> Linkage Analysis</a></li>
+<li class="chapter" data-level="2.5" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html"><i class="fa fa-check"></i><b>2.5</b> Single Variant Analysis</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#tag-snp"><i class="fa fa-check"></i><b>2.5.1</b> Tag SNP</a></li>
+<li class="chapter" data-level="2.5.2" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#ld-block-haploview"><i class="fa fa-check"></i><b>2.5.2</b> LD Block (Haploview)</a></li>
+<li class="chapter" data-level="2.5.3" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#association-analysis"><i class="fa fa-check"></i><b>2.5.3</b> Association analysis</a></li>
+<li class="chapter" data-level="2.5.4" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#genetic-association-studies"><i class="fa fa-check"></i><b>2.5.4</b> Genetic Association studies</a></li>
+<li class="chapter" data-level="2.5.5" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#genome-wide-association-study-gwas"><i class="fa fa-check"></i><b>2.5.5</b> Genome-wide association study (GWAS)</a></li>
+<li class="chapter" data-level="2.5.6" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#quality-control"><i class="fa fa-check"></i><b>2.5.6</b> Quality Control</a></li>
+<li class="chapter" data-level="2.5.7" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#snp-genotype-encoding"><i class="fa fa-check"></i><b>2.5.7</b> SNP genotype encoding</a></li>
+<li class="chapter" data-level="2.5.8" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#quantile-quantile-qq-plots"><i class="fa fa-check"></i><b>2.5.8</b> Quantile-Quantile (QQ) plots</a></li>
+<li class="chapter" data-level="2.5.9" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#manhattan-plots"><i class="fa fa-check"></i><b>2.5.9</b> Manhattan Plots</a></li>
+<li class="chapter" data-level="2.5.10" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#regional-plots"><i class="fa fa-check"></i><b>2.5.10</b> Regional Plots</a></li>
+<li class="chapter" data-level="2.5.11" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#실제-데이터-분석-및-해석"><i class="fa fa-check"></i><b>2.5.11</b> 실제 데이터 분석 및 해석</a></li>
+<li class="chapter" data-level="2.5.12" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#population-stratification"><i class="fa fa-check"></i><b>2.5.12</b> Population Stratification</a></li>
+<li class="chapter" data-level="2.5.13" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#genotype-imputation"><i class="fa fa-check"></i><b>2.5.13</b> Genotype Imputation</a></li>
+<li class="chapter" data-level="2.5.14" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#reference-data"><i class="fa fa-check"></i><b>2.5.14</b> Reference data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html"><i class="fa fa-check"></i><b>2.6</b> NGS - Rare Variant Analysis</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#missing-heritability"><i class="fa fa-check"></i><b>2.6.1</b> Missing Heritability</a></li>
+<li class="chapter" data-level="2.6.2" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#post-gwas"><i class="fa fa-check"></i><b>2.6.2</b> Post-GWAS</a></li>
+<li class="chapter" data-level="2.6.3" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#why-rare-variant"><i class="fa fa-check"></i><b>2.6.3</b> Why rare variant?</a></li>
+<li class="chapter" data-level="2.6.4" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#snp-chips-can-detect-rare-variation"><i class="fa fa-check"></i><b>2.6.4</b> SNP-chips can detect rare variation?</a></li>
+<li class="chapter" data-level="2.6.5" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#ngs"><i class="fa fa-check"></i><b>2.6.5</b> NGS</a></li>
+<li class="chapter" data-level="2.6.6" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#rare-variants-analysis"><i class="fa fa-check"></i><b>2.6.6</b> Rare Variants Analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bitec---bioinformatics.html"><a href="bitec---bioinformatics.html"><i class="fa fa-check"></i><b>3</b> BITEC - Bioinformatics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>3.1</b> R</a></li>
+<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>3.2</b> Python</a></li>
+<li class="chapter" data-level="3.3" data-path="linux.html"><a href="linux.html"><i class="fa fa-check"></i><b>3.3</b> Linux</a></li>
+<li class="chapter" data-level="3.4" data-path="ngs-1.html"><a href="ngs-1.html"><i class="fa fa-check"></i><b>3.4</b> NGS</a></li>
+<li class="chapter" data-level="3.5" data-path="wes-wgs.html"><a href="wes-wgs.html"><i class="fa fa-check"></i><b>3.5</b> WES, WGS</a></li>
+<li class="chapter" data-level="3.6" data-path="advanced-python-programming.html"><a href="advanced-python-programming.html"><i class="fa fa-check"></i><b>3.6</b> Advanced Python Programming</a></li>
+<li class="chapter" data-level="3.7" data-path="advanced-r-programming.html"><a href="advanced-r-programming.html"><i class="fa fa-check"></i><b>3.7</b> Advanced R Programming</a></li>
+<li class="chapter" data-level="3.8" data-path="public-bio-big-data-and-cancer-immunotherapy.html"><a href="public-bio-big-data-and-cancer-immunotherapy.html"><i class="fa fa-check"></i><b>3.8</b> Public Bio Big Data and Cancer Immunotherapy</a></li>
+<li class="chapter" data-level="3.9" data-path="methodology-and-application-for-ngs.html"><a href="methodology-and-application-for-ngs.html"><i class="fa fa-check"></i><b>3.9</b> Methodology and Application for NGS</a></li>
+<li class="chapter" data-level="3.10" data-path="cancer-genome-and-multi-omic-bioinformatics.html"><a href="cancer-genome-and-multi-omic-bioinformatics.html"><i class="fa fa-check"></i><b>3.10</b> Cancer Genome and Multi-omic Bioinformatics</a></li>
+<li class="chapter" data-level="3.11" data-path="rna-seq-and-transcriptome-data-analysis.html"><a href="rna-seq-and-transcriptome-data-analysis.html"><i class="fa fa-check"></i><b>3.11</b> RNA-Seq and Transcriptome Data Analysis</a></li>
+<li class="chapter" data-level="3.12" data-path="advanced-ngs-data-analysis.html"><a href="advanced-ngs-data-analysis.html"><i class="fa fa-check"></i><b>3.12</b> Advanced NGS Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="kobic---ngs-analysis.html"><a href="kobic---ngs-analysis.html"><i class="fa fa-check"></i><b>4</b> KOBIC - NGS analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html"><i class="fa fa-check"></i><b>4.1</b> 유전체 분석의 배경</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#fragmenting-dna"><i class="fa fa-check"></i><b>4.1.1</b> Fragmenting DNA</a></li>
+<li class="chapter" data-level="4.1.2" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#cloning"><i class="fa fa-check"></i><b>4.1.2</b> Cloning</a></li>
+<li class="chapter" data-level="4.1.3" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#sequencing-dna"><i class="fa fa-check"></i><b>4.1.3</b> Sequencing DNA</a></li>
+<li class="chapter" data-level="4.1.4" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#the-human-genome-project"><i class="fa fa-check"></i><b>4.1.4</b> The Human Genome Project</a></li>
+<li class="chapter" data-level="4.1.5" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#the-impact-of-hgp"><i class="fa fa-check"></i><b>4.1.5</b> The impact of HGP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="ngs의-기초.html"><a href="ngs의-기초.html"><i class="fa fa-check"></i><b>4.2</b> NGS의 기초</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="ngs의-기초.html"><a href="ngs의-기초.html#precision-medicine"><i class="fa fa-check"></i><b>4.2.1</b> Precision medicine</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ngs의-기초.html"><a href="ngs의-기초.html#next-generation-sequencing"><i class="fa fa-check"></i><b>4.2.2</b> Next generation sequencing</a></li>
+<li class="chapter" data-level="4.2.3" data-path="ngs의-기초.html"><a href="ngs의-기초.html#raw-data-fastq"><i class="fa fa-check"></i><b>4.2.3</b> Raw data (FASTQ)</a></li>
+<li class="chapter" data-level="4.2.4" data-path="ngs의-기초.html"><a href="ngs의-기초.html#aligment-bam-file"><i class="fa fa-check"></i><b>4.2.4</b> Aligment (BAM file)</a></li>
+<li class="chapter" data-level="4.2.5" data-path="ngs의-기초.html"><a href="ngs의-기초.html#wgs-wes-and-targeted-sequencing"><i class="fa fa-check"></i><b>4.2.5</b> WGS WES, and targeted sequencing</a></li>
+<li class="chapter" data-level="4.2.6" data-path="ngs의-기초.html"><a href="ngs의-기초.html#target-enrichment-analysis"><i class="fa fa-check"></i><b>4.2.6</b> Target enrichment analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html"><i class="fa fa-check"></i><b>4.3</b> NGS를 이용한 변이분석1</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#유전자-변이와-질병"><i class="fa fa-check"></i><b>4.3.1</b> 유전자 변이와 질병</a></li>
+<li class="chapter" data-level="4.3.2" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#유전자-변이의-종류"><i class="fa fa-check"></i><b>4.3.2</b> 유전자 변이의 종류</a></li>
+<li class="chapter" data-level="4.3.3" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#유전자-변이-찾는-방법-이전"><i class="fa fa-check"></i><b>4.3.3</b> 유전자 변이 찾는 방법 (이전)</a></li>
+<li class="chapter" data-level="4.3.4" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#microarray를-이용한-방법"><i class="fa fa-check"></i><b>4.3.4</b> Microarray를 이용한 방법</a></li>
+<li class="chapter" data-level="4.3.5" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#ngs를-이용한-유전자-변이-찾기"><i class="fa fa-check"></i><b>4.3.5</b> NGS를 이용한 유전자 변이 찾기</a></li>
+<li class="chapter" data-level="4.3.6" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#에러-정량화"><i class="fa fa-check"></i><b>4.3.6</b> 에러 정량화</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ngs를-이용한-변이분석2.html"><a href="ngs를-이용한-변이분석2.html"><i class="fa fa-check"></i><b>4.4</b> NGS를 이용한 변이분석2</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="ngs를-이용한-변이분석2.html"><a href="ngs를-이용한-변이분석2.html#germ-line-vs-somatic-mutation"><i class="fa fa-check"></i><b>4.4.1</b> Germ line vs somatic mutation</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ngs를-이용한-변이분석2.html"><a href="ngs를-이용한-변이분석2.html#variant-allele-frequency-vaf"><i class="fa fa-check"></i><b>4.4.2</b> Variant Allele Frequency (VAF)</a></li>
+<li class="chapter" data-level="4.4.3" data-path="ngs를-이용한-변이분석2.html"><a href="ngs를-이용한-변이분석2.html#저빈도-돌연변이와-모자이크-변이"><i class="fa fa-check"></i><b>4.4.3</b> 저빈도 돌연변이와 모자이크 변이</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="ngs를-이용한-변이분석3.html"><a href="ngs를-이용한-변이분석3.html"><i class="fa fa-check"></i><b>4.5</b> NGS를 이용한 변이분석3</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="ngs를-이용한-변이분석3.html"><a href="ngs를-이용한-변이분석3.html#ngs를-이용한-구조변이structural-variation-탐지"><i class="fa fa-check"></i><b>4.5.1</b> NGS를 이용한 구조변이(Structural variation) 탐지</a></li>
+<li class="chapter" data-level="4.5.2" data-path="ngs를-이용한-변이분석3.html"><a href="ngs를-이용한-변이분석3.html#paired-end-sequencing"><i class="fa fa-check"></i><b>4.5.2</b> Paired-end sequencing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ngs-분석의-최적화.html"><a href="ngs-분석의-최적화.html"><i class="fa fa-check"></i><b>4.6</b> NGS 분석의 최적화</a></li>
+<li class="chapter" data-level="4.7" data-path="ngs의-응용-암유전체.html"><a href="ngs의-응용-암유전체.html"><i class="fa fa-check"></i><b>4.7</b> NGS의 응용, 암유전체</a></li>
+<li class="chapter" data-level="4.8" data-path="ngs의-응용-암면역.html"><a href="ngs의-응용-암면역.html"><i class="fa fa-check"></i><b>4.8</b> NGS의 응용, 암면역</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="kogo.html"><a href="kogo.html"><i class="fa fa-check"></i><b>5</b> KOGO</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ngs를-통한-중개연구-최무림.html"><a href="ngs를-통한-중개연구-최무림.html"><i class="fa fa-check"></i><b>5.1</b> NGS를 통한 중개연구 (최무림)</a>
+<ul>
+<li class="chapter" data-level="5.1.1" data-path="ngs를-통한-중개연구-최무림.html"><a href="ngs를-통한-중개연구-최무림.html#질병의-유전학적-이해-및-정밀의학의-구현"><i class="fa fa-check"></i><b>5.1.1</b> 질병의 유전학적 이해 및 정밀의학의 구현</a></li>
+<li class="chapter" data-level="5.1.2" data-path="ngs를-통한-중개연구-최무림.html"><a href="ngs를-통한-중개연구-최무림.html#ngs-methodology"><i class="fa fa-check"></i><b>5.1.2</b> NGS methodology</a></li>
+<li class="chapter" data-level="5.1.3" data-path="ngs를-통한-중개연구-최무림.html"><a href="ngs를-통한-중개연구-최무림.html#dbs-data-repositories"><i class="fa fa-check"></i><b>5.1.3</b> DBs &amp; Data Repositories</a></li>
+<li class="chapter" data-level="5.1.4" data-path="ngs를-통한-중개연구-최무림.html"><a href="ngs를-통한-중개연구-최무림.html#wes과-mendelian-질병-원인-규명법"><i class="fa fa-check"></i><b>5.1.4</b> WES과 Mendelian 질병 원인 규명법</a></li>
+<li class="chapter" data-level="5.1.5" data-path="ngs를-통한-중개연구-최무림.html"><a href="ngs를-통한-중개연구-최무림.html#rna-sequencing-데이터-분석"><i class="fa fa-check"></i><b>5.1.5</b> RNA sequencing 데이터 분석</a></li>
+<li class="chapter" data-level="5.1.6" data-path="ngs를-통한-중개연구-최무림.html"><a href="ngs를-통한-중개연구-최무림.html#single-cell-rna-sequening-데이터-분석"><i class="fa fa-check"></i><b>5.1.6</b> Single cell RNA sequening 데이터 분석</a></li>
+<li class="chapter" data-level="5.1.7" data-path="ngs를-통한-중개연구-최무림.html"><a href="ngs를-통한-중개연구-최무림.html#somatic-disease의-유전체적-접근과-이해"><i class="fa fa-check"></i><b>5.1.7</b> Somatic disease의 유전체적 접근과 이해</a></li>
+<li class="chapter" data-level="5.1.8" data-path="ngs를-통한-중개연구-최무림.html"><a href="ngs를-통한-중개연구-최무림.html#wgs-데이터-분석"><i class="fa fa-check"></i><b>5.1.8</b> WGS 데이터 분석</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="chip-seq-염색질-3차-구조-분석-정인경.html"><a href="chip-seq-염색질-3차-구조-분석-정인경.html"><i class="fa fa-check"></i><b>5.2</b> CHIP-seq 염색질 3차 구조 분석 (정인경)</a></li>
+<li class="chapter" data-level="5.3" data-path="단일세포전사체분석-개요-김종경.html"><a href="단일세포전사체분석-개요-김종경.html"><i class="fa fa-check"></i><b>5.3</b> 단일세포전사체분석 개요 (김종경)</a></li>
+<li class="chapter" data-level="5.4" data-path="바이오데이터마이닝을-위한-기계학습-황규백.html"><a href="바이오데이터마이닝을-위한-기계학습-황규백.html"><i class="fa fa-check"></i><b>5.4</b> 바이오데이터마이닝을 위한 기계학습 (황규백)</a></li>
+<li class="chapter" data-level="5.5" data-path="한국인칩을-이용한-대규모-유전체정보-분석-김봉조.html"><a href="한국인칩을-이용한-대규모-유전체정보-분석-김봉조.html"><i class="fa fa-check"></i><b>5.5</b> 한국인칩을 이용한 대규모 유전체정보 분석 (김봉조)</a></li>
+<li class="chapter" data-level="5.6" data-path="유전체역학-박지완.html"><a href="유전체역학-박지완.html"><i class="fa fa-check"></i><b>5.6</b> 유전체역학 (박지완)</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="유전체역학-박지완.html"><a href="유전체역학-박지완.html#genome-epidemiology"><i class="fa fa-check"></i><b>5.6.1</b> Genome Epidemiology</a></li>
+<li class="chapter" data-level="5.6.2" data-path="유전체역학-박지완.html"><a href="유전체역학-박지완.html#genome-wide-association-study"><i class="fa fa-check"></i><b>5.6.2</b> Genome-Wide Association Study</a></li>
+<li class="chapter" data-level="5.6.3" data-path="유전체역학-박지완.html"><a href="유전체역학-박지완.html#genome-sequencing-data-analysis"><i class="fa fa-check"></i><b>5.6.3</b> Genome Sequencing Data Analysis</a></li>
+<li class="chapter" data-level="5.6.4" data-path="유전체역학-박지완.html"><a href="유전체역학-박지완.html#survival-analysis"><i class="fa fa-check"></i><b>5.6.4</b> Survival Analysis</a></li>
+<li class="chapter" data-level="5.6.5" data-path="유전체역학-박지완.html"><a href="유전체역학-박지완.html#gene-enviroment-interaction"><i class="fa fa-check"></i><b>5.6.5</b> Gene-Enviroment Interaction</a></li>
+<li class="chapter" data-level="5.6.6" data-path="유전체역학-박지완.html"><a href="유전체역학-박지완.html#mendelian-randomization-mr"><i class="fa fa-check"></i><b>5.6.6</b> Mendelian Randomization (MR)</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="단일세포-전사체-분석-기술을-이용한-암-연구-이세민.html"><a href="단일세포-전사체-분석-기술을-이용한-암-연구-이세민.html"><i class="fa fa-check"></i><b>5.7</b> 단일세포 전사체 분석 기술을 이용한 암 연구 (이세민)</a></li>
+<li class="chapter" data-level="5.8" data-path="빅데이터-분석-기법을-활용한-다중-오믹스-데이터-분석.html"><a href="빅데이터-분석-기법을-활용한-다중-오믹스-데이터-분석.html"><i class="fa fa-check"></i><b>5.8</b> 빅데이터 분석 기법을 활용한 다중 오믹스 데이터 분석</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ksmo.html"><a href="ksmo.html"><i class="fa fa-check"></i><b>6</b> KSMO</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6.1</b> Publishing</a></li>
+<li class="chapter" data-level="6.2" data-path="pages.html"><a href="pages.html"><i class="fa fa-check"></i><b>6.2</b> 404 pages</a></li>
+<li class="chapter" data-level="6.3" data-path="metadata-for-sharing.html"><a href="metadata-for-sharing.html"><i class="fa fa-check"></i><b>6.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="etc..html"><a href="etc..html"><i class="fa fa-check"></i><b>7</b> etc.</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="한국역학회.html"><a href="한국역학회.html"><i class="fa fa-check"></i><b>7.1</b> 한국역학회</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-1차-gwas의-이론과-실제"><i class="fa fa-check"></i><b>7.1.1</b> [역학연구 세미나 1차] GWAS의 이론과 실제</a></li>
+<li class="chapter" data-level="7.1.2" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-2차-genome-wide-interaction-study"><i class="fa fa-check"></i><b>7.1.2</b> [역학연구 세미나 2차] Genome Wide Interaction Study</a></li>
+<li class="chapter" data-level="7.1.3" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-3차-정신역학-공간-및-베이즈-역학"><i class="fa fa-check"></i><b>7.1.3</b> [역학연구 세미나 3차] 정신역학, 공간 및 베이즈 역학</a></li>
+<li class="chapter" data-level="7.1.4" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-4차-건강검진-심혈관질환-영역에서-역학"><i class="fa fa-check"></i><b>7.1.4</b> [역학연구 세미나 4차] 건강검진, 심혈관질환 영역에서 역학</a></li>
+<li class="chapter" data-level="7.1.5" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-5차-암역학-음주와-암"><i class="fa fa-check"></i><b>7.1.5</b> [역학연구 세미나 5차] 암역학, 음주와 암</a></li>
+<li class="chapter" data-level="7.1.6" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-6차-공간역학-기초과정-워크숍"><i class="fa fa-check"></i><b>7.1.6</b> [역학연구 세미나 6차] 공간역학 기초과정 워크숍</a></li>
+<li class="chapter" data-level="7.1.7" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-7차-건강검진-심혈관질환-영역에서-역학"><i class="fa fa-check"></i><b>7.1.7</b> [역학연구 세미나 7차] 건강검진, 심혈관질환 영역에서 역학</a></li>
+<li class="chapter" data-level="7.1.8" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-8차-노화역학-환경역학"><i class="fa fa-check"></i><b>7.1.8</b> [역학연구 세미나 8차] 노화역학, 환경역학</a></li>
+<li class="chapter" data-level="7.1.9" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-9차-지역사회기반중재효과-약물역학"><i class="fa fa-check"></i><b>7.1.9</b> [역학연구 세미나 9차] 지역사회기반중재효과, 약물역학</a></li>
+<li class="chapter" data-level="7.1.10" data-path="한국역학회.html"><a href="한국역학회.html#역학연구-세미나-10차-구강역학-data-science"><i class="fa fa-check"></i><b>7.1.10</b> [역학연구 세미나 10차] 구강역학, Data Science</a></li>
+<li class="chapter" data-level="7.1.11" data-path="한국역학회.html"><a href="한국역학회.html#년-동계연수교육-유전체-역학-및-다중오믹스-분석방법"><i class="fa fa-check"></i><b>7.1.11</b> 2022년 동계연수교육 유전체 역학 및 다중오믹스 분석방법</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="articles.html"><a href="articles.html"><i class="fa fa-check"></i><b>8</b> Articles</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="section.html"><a href="section.html"><i class="fa fa-check"></i><b>8.1</b> 2017</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="section.html"><a href="section.html#a-tutorial-on-conducting-genomewide-association-studies-quality-control-and-statistical-analysis"><i class="fa fa-check"></i><b>8.1.1</b> A tutorial on conducting genome‐wide association studies: Quality control and statistical analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Genetics with Bioinformatics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> 2017<a href="section.html#section" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="a-tutorial-on-conducting-genomewide-association-studies-quality-control-and-statistical-analysis" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> A tutorial on conducting genome‐wide association studies: Quality control and statistical analysis<a href="section.html#a-tutorial-on-conducting-genomewide-association-studies-quality-control-and-statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Abstract
+<ul>
+<li>Objectives: Genome‐wide association studies (GWAS) have become increasingly popular to identify associations between single nucleotide polymorphisms (SNPs) and phenotypic traits. The GWAS method is commonly applied within the social sciences. However, statistical analyses will need to be carefully conducted and the use of dedicated genetics software will be required. This tutorial aims to provide a guideline for conducting genetic analyses.</li>
+<li>Methods: We discuss and explain key concepts and illustrate how to conduct GWAS using example scripts provided through GitHub (<a href="https://github.com/MareesAT/GWA_tutorial/" class="uri">https://github.com/MareesAT/GWA_tutorial/</a>). In addition to the illustration of <strong>standard GWAS</strong>, we will also show how to apply <strong>polygenic risk score (PRS)</strong> analysis. PRS does not aim to identify individual SNPs but aggregates information from SNPs across the genome in order to provide individual‐level scores of genetic risk.</li>
+<li>Results: The simulated data and scripts that will be illustrated in the current tutorial provide hands‐on practice with genetic analyses. The scripts are based on <strong>PLINK, PRSice, and R</strong>, which are commonly used, freely available software tools that are accessible for novice users.</li>
+<li>Conclusions: By providing theoretical background and hands‐on experience, we aim to make GWAS more accessible to researchers without formal training in the field.</li>
+</ul></li>
+<li>Introduction
+<ul>
+<li>The aforementioned GWAS relied strongly on in‐depth knowledge of the genetic architecture of the human genome, which was provided by two important research initiatives, namely, <strong>the International HapMap Project and the 1000 Genomes project</strong>. The International HapMap Project (<a href="http://hapmap.ncbi.nlm.nih.gov/" class="uri">http://hapmap.ncbi.nlm.nih.gov/</a>; Gibbs et al., 2003) described the patterns of common SNPs within the human DNA sequence whereas the 1000 Genomes (1KG) project (<a href="http://www.1000genomes.org/" class="uri">http://www.1000genomes.org/</a>; Altshuler et al., 2012) provided a map of both common and rare SNPs.</li>
+<li><strong>PRS</strong> combines the effect sizes of multiple SNPs into a single aggregated score that can be used to predict disease risk (Dudbridge, 2016).</li>
+<li>The PRS is an individual‐level score that is calculated based on the number of risk variants that a person carries, weighted by
+SNP effect sizes that are derived from an independent large‐scaled discovery GWAS.</li>
+<li>As such, the score is an indication of the total genetic risk
+of a specific individual for a particular trait, which can be used for clinical prediction or screening (e.g., breast cancer; Shieh et al., 2016).</li>
+<li>This tutorial provides a guideline to researchers who wish to incorporate genetics into their studies but do not have a formal background in this topic. First, we will show how to apply <strong>rigorous quality control (QC)</strong> procedures on genotype data prior to conducting GWAS, including the use of appropriate methods to take into account ethnic heterogeneity. Second, we illustrate commonly used tests of <strong>association between SNPs and phenotypic traits of interest while controlling for potential confounders</strong>. Third, we will show how to conduct <strong>PRS analysis</strong>. Example R and Unix scripts are provided at <a href="https://github.com/MareesAT/GWA_tutorial/" class="uri">https://github.com/MareesAT/GWA_tutorial/</a>.</li>
+<li>We do not elaborate on SNP imputation of unmeasured SNPs based on reference data. Although imputation is a commonly used method in GWAS, it is beyond the scope of this article. For a solid introduction on this topic, we refer to an article by van Leeuwen and colleagues (2015).</li>
+</ul></li>
+<li>Software
+<ul>
+<li>QC procedures and statistical analyses will be illustrated using the free, open‐source whole‐genome association analysis toolset PLINK version 1.07 (Purcell et al., 2007) that can be downloaded from <a href="http://zzz.bwh.harvard.edu/plink/" class="uri">http://zzz.bwh.harvard.edu/plink/</a>.</li>
+<li>In addition to PLINK, there are many other good options available for the analysis of SNP data such as Genabel (Aulchenko, Ripke, Isaacs, &amp; Van Duijn, 2007) and SNPTEST (Marchini, Howie, Myers, McVean, &amp; Donnelly, 2007).</li>
+<li>We advise to use GNU/ Linux‐based computer resources although many of the options are also available through the windows version of PLINK.</li>
+<li>Data format
+<ul>
+<li>PLINK can either read text‐format files or binary files. Because reading large text files can be time‐consuming, it is recommended to use binary files.</li>
+<li>Text PLINK data consist of two files: one contains information on the individuals and their genotypes (.ped); the other contains information on the genetic markers (.map; see Figure 1).</li>
+<li>In contrast, binary PLINK data consist of three files, a binary file that contains individual identifiers (IDs) and genotypes (.bed), and two text files that contain information on the individuals (.fam) and on the genetic markers (.bim; see Figure 1).
+<ul>
+<li>.fam 파일 :: 샘플 정보 (텍스트 파일)</li>
+<li>.bim 파일 :: biallelic 변이 ID, 위치, Alleles 정보 (텍스트 파일)
+<ul>
+<li>두 개의 대립유전자 중에 보통 덜 흔한 대립유전자가 5번째 열에 오고, 더 흔한 경우 6번째 열에 온다.</li>
+</ul></li>
+<li>.bed 파일 :: 변이 x 샘플 행렬 압축 데이터 (바이너리 파일)
+<ul>
+<li>.bed 파일은 텍스트 파일이 아니고, 바이너리 파일이라서 바로 읽을 수는 없고, 바이너리 파일을 읽는 방법을 사용해야 하는데 예를 들어서 R에서는 read.bed() 함수 같은 것을 사용해서 읽을 수 있다.</li>
+<li>.bed 파일에는 변이 정보와 샘플 정보를 매칭 시켜서 해당 변이에서 어떤 대립유전자가 있는지에 대한 변이 행렬이 있다.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+<center>
+<img src="figures/237.png" />
+</center>
+<center>
+<img src="figures/239.png" />
+</center>
+<center>
+<img src="figures/238.png" />
+</center>
+<center>
+<img src="figures/234.PNG" />
+</center>
+<center>
+<img src="figures/235.PNG" />
+</center>
+<ul>
+<li>Basic PLINK command
+<ul>
+<li>The current directory is a central notion for PLINK usage, because by default, PLINK will load data files from, and save result files in this directory.</li>
+<li>The current directory can be changed to any directory using conventional Unix commands, typically <em>cd</em>.</li>
+<li>After the plink keyword, other options controlling PLINK’s workflow will follow, separated by spaces. These options all begin with two dashes (‐‐). One of the first options to provide is the format and the name of the data files: use ‐‐file {your_file} for text files and ‐‐bfile {your_file} for binary files.</li>
+<li>After that, all other required options can be added, for instance, the ‐‐assoc option to perform an association analysis as displayed in Figure 2; this specific option will tell PLINK to perform an X2 test for each SNP to the phenotype of interest.</li>
+</ul></li>
+<li>QC of genetic data
+<ul>
+<li>Errors in the data can arise for numerous reasons, for example, due to poor quality of DNA samples, poor DNA hybridization to the array, poorly performing genotype probes, and sample mix‐ups or contamination. For instance, failing to thoroughly control for these data issues has led to the retraction of an article published by Sebastiani et al. (2010) in Science (Sebastiani et al., 2010, 2011; Sebastiani et al., 2012; Sebastiani et al., 2013).</li>
+<li>Data simulation using HapMap data</li>
+<li>Overview of QC steps
+<ul>
+<li>Because of the challenges characterizing GWAS, we aim to illustrate essential QC steps and to provide example scripts. Table 1 provides a summary of seven QC steps and includes recommendations regarding the specific thresholds.</li>
+<li>The seven QC steps consist of filtering out of SNPs and individuals based on the following: (1) individual and SNP missingness, (2) inconsistencies in assigned and genetic sex of subjects (see sex discrepancy), (3) minor allele frequency (MAF), (4) deviations from Hardy–Weinberg equilibrium (HWE), (5) heterozygosity rate, (6) relatedness, and (7) ethnic outliers (see population stratification).</li>
+</ul></li>
+</ul></li>
+</ul>
+<center>
+<img src="figures/236.PNG" />
+</center>
+<p><br></p>
+<ul>
+<li>STATISTICAL TESTS OF ASSOCIATION FOR BINARY AND QUANTITATIVE TRAITS
+<ul>
+<li>After QC and calculation of MDS components, the data are ready for subsequent association tests.</li>
+<li>PLINK offers one degree of freedom (1 df) allelic tests in which the trait value, or the log‐odds of a binary trait, increases or decreases linearly as a function of the number of risk alleles (minor allele [a] vs. major allele [A]).
+<ul>
+<li>Binary outcome measure</li>
+<li>Quantitative outcome measure</li>
+<li>Correction for multiple testing</li>
+</ul></li>
+</ul></li>
+<li>PRS analysis
+<ul>
+<li>Conducting polygenic risk prediction analyses</li>
+</ul></li>
+</ul>
+<center>
+<img src="figures/240.PNG" />
+</center>
+<p><br></p>
+<blockquote>
+<p><strong>Clumping</strong>: This is a procedure in which only the most significant SNP (i.e., lowest p value) in each LD block is identified and selected for further analyses. This reduces the correlation between the remaining SNPs, while retaining SNPs with the strongest statistical evidence.<br>
+<strong>Co‐heritability</strong>: This is a measure of the genetic relationship between disorders. The SNP‐based co‐ heritability is the proportion of covariance between disorder pairs (e.g., schizophrenia and bipolar disorder) that is explained by SNPs. <br>
+<strong>Gene</strong>: This is a sequence of nucleotides in the DNA that codes for a molecule (e.g., a protein) <br>
+<strong>Heterozygosity</strong>: This is the carrying of two different alleles of a specific SNP. The heterozygosity rate of an individual is the proportion of heterozygous genotypes. High levels of heterozygosity within an individual might be an indication of low sample quality whereas low levels of heterozygosity may be due to inbreeding. <br>
+<strong>Individual‐level missingness</strong>: This is the number of SNPs that is missing for a specific individual. High levels of missingness can be an indication of poor DNA quality or technical problems. <br>
+<strong>Linkage disequilibrium (LD)</strong>: This is a measure of non‐ random association between alleles at different loci at the same chromosome in a given population. SNPs are in LD when the frequency of association of their alleles is higher than expected under random assortment. LD concerns patterns of correlations between SNPs. <br>
+<strong>Minor allele frequency (MAF)</strong>: This is the frequency of the least often occurring allele at a specific location. Most studies are underpowered to detect associations with SNPs with a low MAF and therefore exclude these SNPs. <br>
+<strong>Population stratification</strong>: This is the presence of multiple subpopulations (e.g., individuals with different ethnic background) in a study. Because allele frequencies can differ between subpopulations, population stratification can lead to false positive associations and/or mask true associations. An excellent example of this is the chopstick gene, where a SNP, due to population stratification, accounted for nearly half of the variance in the capacity to eat with chopsticks (Hamer &amp; Sirota, 2000). <br>
+<strong>Pruning</strong>: This is a method to select a subset of markers that are in approximate linkage equilibrium. In PLINK, this method uses the strength of LD between SNPs within a specific window (region) of the chromosome and selects only SNPs that are approximately uncorrelated, based on a user‐specified threshold of LD. In contrast to clumping, pruning does not take the p value of a SNP into account. <br>
+<strong>Relatedness</strong>: This indicates how strongly a pair of individuals is genetically related. A conventional GWAS assumes that all subjects are unrelated (i.e., no pair of individuals is more closely related than second‐degree relatives). Without appropriate correction, the inclusion of relatives could lead to biased estimations of standard errors of SNP effect sizes. Note that specific tools for analysing family data have been developed. <br>
+<strong>Sex discrepancy</strong>: This is the difference between the assigned sex and the sex determined based on the genotype. A discrepancy likely points to sample mix‐ups in the lab. Note, this test can only be conducted when SNPs on the sex chromosomes (X and Y) have been assessed.<br>
+<strong>Single nucleotide polymorphism (SNP)</strong>: This is a variation in a single nucleotide (i.e., A, C, G, or T) that occurs at a specific position in the genome. A SNP usually exists as two different forms (e.g., A vs. T). These different forms are called alleles. A SNP with two alleles has three different genotypes (e.g., AA, AT, and TT). <br>
+<strong>SNP‐heritability</strong>:This is the fraction of phenotypic variance of a trait explained by all SNPs in the analysis.<br>
+<strong>SNP‐level missingness</strong>: This is the number of individuals in the sample for whom information on a specific SNP is missing. SNPs with a high level of missingness can potentially lead to bias. <br>
+<strong>Summary statistics</strong>: These are the results obtained after conducting a GWAS, including information on chromosome number, position of the SNP, SNP(rs)‐ identifier, MAF, effect size (odds ratio/beta), standard error, and p value. Summary statistics of GWAS are often freely accessible or shared between researchers.<br>
+<strong>The Hardy–Weinberg (dis)equilibrium (HWE) law</strong>: This concerns the relation between the allele and genotype frequencies. It assumes an indefinitely large population, with no selection, mutation, or migration. The law states that the genotype and the allele frequencies are constant over generations. Violation of the HWE law indicates that genotype frequencies are significantly different from expectations (e.g., if the frequency of allele A = 0.20 and the frequency of allele T = 0.80; the expected frequency of genotype AT is 2<em>0.2</em>0.8 = 0.32) and the observed frequency should not be significantly different. In GWAS, it is generally assumed that deviations from HWE are the result of genotyping errors. The HWE thresholds in cases are often less stringent than those in controls, as the violation of the HWE law in cases can be indicative of true genetic association with disease risk.</p>
+</blockquote>
+
+</div>
+</div>
+<!-- </div> -->
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="articles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/08-share.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

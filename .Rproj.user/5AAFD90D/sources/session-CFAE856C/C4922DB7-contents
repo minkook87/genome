@@ -1,0 +1,894 @@
+# KOGO
+
+## NGS를 통한 중개연구 (최무림)
+
+### 질병의 유전학적 이해 및 정밀의학의 구현
+
+<center>![](figures/331.png)</center> <br>
+<center>![](figures/332.png)</center> <br>
+<center>![](figures/333.png)</center>
+<center>![](figures/334.png)</center>
+<center>![](figures/335.png)</center> <br>
+
+  - Numbers
+    - 1. The number of bases in human genome? 3 billion (30억개)
+    - 2. The number of (coding) genes in human genome? 2만여개
+    - 3. The number of bases in (coding) genes? 1% (3천만개)
+    - 4. The number of variants in human genome? (compared to what?) 3 million (3백만개)
+    - 5. The number of variants in coding genes? 3만개
+    - 6. The number of variants that change proteins? 1만 5천개
+    - 7. The number of variants that change proteins and rare? 100개 ~ 200개 (아버지에게서 80% de novo variant)
+    - 8. The number of variants that are specific to yourself? a few <br><br>
+
+  - How to assess gene function? - Human
+    - **노매드**에는 대조군 데이터베이스로 생성
+    - 유전자 기능 유추 가능
+    - 희귀질환자는 없고 만성질환자는 있음
+    
+<center>![](figures/336.png)</center> <br>
+<center>![](figures/337.png)</center> <br>
+<center>![](figures/338.png)</center> <br>
+<center>![](figures/339.png)</center> <br>
+
+  - Where is missing heritability?
+    - Let’s see where we have looked so far:
+      - Rare coding variants (for rare diseases, by linkage and WES)
+      - Common variants (for common diseases, by GWAS: ~5-10%)
+      - Copy number variants
+      - Epigenetic signals
+      - eQTLs
+    - Now we have to look at:
+      - Non-coding variants
+      - All the above factors from more samples & more variant
+
+  - Categories of diseases by prevalence
+    - Single occurrence (1/6B): by de novo event. Ribose-5-phosphate isomerase deficiency
+    - Rare rare diseases: by de novo event, inheritable if symptom is mild
+    - Rare diseases: some familial, mostly sporadic (de novo)
+    - Common diseases: genetic + environmental
+  - de novo variant: acquired genomic variant. ~70 per genome
+
+<center>![](figures/340.png)</center> <br>
+
+  - Classification of analysis
+    - NGS data에서 인간 유전체상의 copy number variation을 찾는 알고리즘을 만든다 (Bioinformatics)
+    - 한국인 유전체를 분석해서 copy number variation 프로파일링을 한다 (Genomics)
+    - 한국인 당뇨병 환자 100명에게서 공통적으로 존재하는 copy number variation을 찾는다 (Genetics)
+
+### NGS methodology
+
+  - There is no easy/fixed answer for human genetics methodology
+    - Population frequency of the trait that you study -    Previous (genetic) information
+    - Size of the cohort
+    - Ethnic composition of the cohort
+    - Accessibility to the methods – financial, technical, analytical
+    
+  - What methods are available for detecting HGV?
+    - NGS
+    - SNP array
+    - Array CGH
+    - Sanger sequencing
+    - PCR <br><br>
+
+  - Method 1: Sanger sequencing
+    - Method 1-1: Human genome projects is a large scale Sanger sequencing – about 200bp reads
+  - Method 2: array CGH (comparative genomic hybridization) - Detects SV down to 200bp^[Structural variation, Copy number variation]
+
+<center>![](figures/341.png)</center> <br>
+  
+  - Method 3: SNP array (DNA microarray, genotyping array etc) - Millions, several millions of SNPs
+  - Method 4: Next-generation sequencing (high-throughput sequencing
+  
+<center>![](figures/342.png)</center> <br>
+
+  - Analysis 1: Linkage
+  - Analysis 2: GWAS
+    - Quantile-quantile plot: probably the most important piece of data of GWAS papers
+      - QQ plot shows genetic signal of the trait
+      - QQ plot shows population stratification
+      - PCA can resolve stratification issue
+    - Manhattan plot
+      - For a single SNP, P = 0.05 may be all right
+      - But for 1,000,000 SNPs, there will be some SNPs that behave abnormally and may show significance
+      - Multiple test correction
+        - Bonferroni correction: if 1,000,000 independent tests = new P = 0.05/1000000 = 5 x 10-8
+        - False-discovery ratio correction
+      - Top signals
+      - Top SNPs that were replicated (5 signals)
+    - Regional plots – MHC loci
+    - Linkage disequilibrium
+      - Definition: Non-random association of alleles at two or more loci
+      - If two loci (A and B) are on different chromosomes => random association
+      - If two loci are on a same chromosome, but located very far apart => random association
+        - AB/Ab/aB/ab will be randomly distributed (linkage equilibrium)
+      - D = FreqAB – FreqA X FreqB = 0.2 – 0.5 x 0.3 = 0.05 0 < D < 1
+      - D shows how tightly the two markers ‘move together’ without recombination
+      - D is sensitive to allele frequency and actually normalized versions – D’ and R2 are used more
+      - tag SNP
+      
+    - further analysis
+    - Meta-analysis GWAS – common complex disease
+    
+    - Limitations of GWAS
+      - SNPs displayed on a chip – common SNP
+      - Can’t explain much of the trait variability
+      - Recently occurred rare variants not associated with tag SNPs
+      - Correlation does not imply causality!
+
+  - Analysis 3-1: whole genome sequencing using NGS
+  - Analysis 3-2: exome sequencing using NGS
+    - Exome array hybridization
+    - WES
+      - Practical alternative of whole genome sequencing
+      - Capture ~1% of human genome (~35Mb)
+      - Responsible for majority of disease-traits
+      - Costs ~ 1,000 dollars per single sample (WGS: ~ 6,000 dollars)
+
+    - Limitations of whole exome sequencing
+      - Does not cover non-coding regions
+      - Not all genes are covered
+      - Low sensitivity toward structural variations
+      - Variable coverage pattern
+
+  - Analysis 3-3: targeted sequencing using NGS
+    - 1. Array-based capture: re-design capture array
+    - 2. PCR-based capture: multiplex PCR amplification
+
+<center>![](figures/343.png)</center> <br>
+
+### DBs & Data Repositories
+
+  - Databases are essential in genomics studies
+    - Variant level: Conservation(Damaging variants prediction)
+    - Frequency Gene level: Function, Domain & Structure, Expression, Disease association
+
+<center>![](figures/344.png)</center> <br>
+
+#### Public database, Data repository 종류와 활용법
+
+  - General
+    - UCSC Genome Browser (https://genome.ucsc.edu/)
+      - genome browser -> Let me stay here genome.ucsc.edu
+      - Human Assembly (hg38이 최신버전 / hg19 가장 많이 사용)
+      - pcsk9 gene 검색 -> bold체가 대표적인 유전자들
+      - pcsk9이 어디에 위치하는지, exon/intron 길이가 어떻게 되는지, SNPs 확인가능, pcsk9의 tissue 별 expression pattern 확인가능, 얼마나 이 region이 active한지, transcription factor가 binding 하는 곳인지 아닌지, 이 gene이 종 간에 얼마나 conserve 되어있는지
+      - 아래 쪽에서 track 수정가능, zoom in/out 가능
+      - zoom in 다음 -> view/DNA를 통해 sequence 확보 가능
+      - tools/blast에 sequence를 넣으면 이 sequence가 인간 또는 동물에서 유래 했는지? -> details를 통해 일치하는 sequence를 찾아낼 수 있고 browser 쓰면 위치를 찾아줌
+      - tools/table browser -> get output, 이 데이터를 가지고 똑같이 그림을 그릴 수 있도록 도와주는 테이블을 제공 <br><br>
+      
+    - Uniprot (https://www.uniprot.org/)
+      - gene이 코딩하는 단백질에 대한 정보를 제공
+      - molecular function이 어떤지, 어떤 category에 할당 되어 있는지, 이 단백질이 cell 내에서 어디에 위치하고 있는지, 질병과의 연관성도 보여줌, 어느 아미노산이 바뀌어서 발병하였는지, 기능과 구조까지 확인 가능
+      - 예를 들어, 100번 아미노산의 변이를 찾았다고 하면 이 곳에서 그 위치를 확인 가능
+      - Sequence 확인 가능, 종 간의 유사도 확인 가능 <br><br>
+      
+    - Proteinpainter (https://pecan.stjude.cloud/proteinpaint)
+      - gene 검색 후 단백질 확인 가능
+      - pcsk9의 경우 700개정도의 아미노산으로 구성
+      - COSMIC(cancer DB), ClinVar와 연동해서 변이를 보여줄 수 있음
+      - 모든 자료는 export 가능 <br><br>
+    
+  - Variant level: Frequency
+    - IGSR: The International Genome Sample Resource (https://www.internationalgenome.org/home)
+      - 전체적으로 데이터를 다운 받아서 여러가지 variant를 annotation 하는 데 사용 함
+      - View variants in genomic context in Ensembl -> 앙상블은 앞서 말한 UCSC Genome Browser와 양대산맥
+      - gene / position 확인 가능 -> 변이 수준에서 검색 가능
+      - rs299 검색 -> human variant, 주로 genomic context, genes and regulation, population genetics, phenotype을 확인
+      - 특히 population genetics의 경우, 이 allele의 frequency를 확인 가능 <br><br>
+      
+    - gnomAD (Genome Aggregation Database) (https://gnomad.broadinstitute.org/)
+    - UK10K (https://www.uk10k.org/) <br><br>
+  
+  - Variant level: Sequence conservation
+    - UCSC Genome Browser에서도 zoom을 크게하면 종 간의 conservation 확인 가능 -> 좀 더 자세히 보고싶다면 MUSCLE을 사용
+    - MUSCLE (https://www.ebi.ac.uk/Tools/msa/muscle/)
+      - Uniprot에서 얻은 유전자 sequence를 Q8NBP7-1을 넣어봄, 비교를 위해 쥐에서의 동일 유전자를 넣어봄 -> 어떠한 region이 conserve 되는지 확인가능 (특정 sequence에 대해) <br><br>
+      
+    - HomoloGene (https://www.ncbi.nlm.nih.gov/homologene)
+      - pcsk9 검색 후 -> protein alignments / show multiple alignment -> 여러 동물 모델에 대해 전체적으로 한꺼번에 확인 가능 <br><br>
+
+  - Gene level: Disease association
+    - OMIM (https://www.omim.org/)
+      - 질병에 대한 모든 정보가 포함되어 있음, gene을 넣어도 되고 질병명을 넣어도 검색 가능
+      - pcsk9에 대해 이 유전자에 의한 질병 확인 가능
+      - gene function 까지 확인 가능하지만 업데이트가 빠른 곳은 아님 <br><br>
+      
+    - ClinVar (https://www.ncbi.nlm.nih.gov/clinvar/)^[어떤 변이를 발견 했을 때 benign/pathogenic 할지 평가]
+      - 변이가 benign / pathogenic 평가 가능
+      - 변이에 대한 정보와 함께 frequency로 링크
+    
+<center>![](figures/345.png)</center> <br>
+    
+  - Gene level: Expression
+    - GTEx (Genotype Tissue Expression project) (https://gtexportal.org/home/)
+      - 정상인 기반의 mRNA level 을 RNA-seq 확인
+    - The Human Protein Atlas (https://www.proteinatlas.org/)
+      - 단백질이나 암 등의 데이터가 필요하시다면 Human Protein Atlas 등을 참고
+    - MGI (Mouse Genome Informatics) (http://www.informatics.jax.org/)
+      - mouse에 대한 모든 정보를 포함
+      - Phenotype overview 확인 가능
+      - tissue & stage에서 발달과정까지 확인 가능
+      - targeted 들어가서 knock-out mouse 확인 가능 <br><br>
+    
+  - Gene ontology
+    - DAVID를 제일 많이 사용 -> 요새는 많이 사용 안함, 업데이트가 느림
+    - DAVID (https://david.ncifcrf.gov/)
+    - ToppGene (https://toppgene.cchmc.org/)
+      - 요즘 많이 사용함
+      - Toppfun -> gene list를 넣으면 어떤 pathway 확인 가능 <br><br>
+      
+    - EnrichR (https://maayanlab.cloud/Enrichr/)
+      - 요즘 뜨고 있음
+      - Gene set을 넣으면 (WES 후 원인이 될 것 같은 유전자 set을 넣거나 RNAseq을 해서 나온 DEG, Differentially Expressed Gene 같은 것을 넣을 수 있음)
+      - Clustergram 사용하면 논문에 넣을 수 있는 figure 생성 가능
+      
+#### Public data repository 활용
+
+  - gnomAD (rare variants)
+    - Broad institute 에서 제공하는 gnomAD는 약 14만명의 대상자에게서 protein coding gene 의 DNA variants 를 체계적으로 발견하고 정리한 database로, 해당 gene에서 발견되는 변이를 요약하여 해당 Gene의 loss-of-function 에 대한 정보를 제공
+    - gnomAD의 초기 화면에서는 간단히 gene 및 variant를 검색
+    - 최근 v3 가 추가되었는데, 일반적인 용도로는 exome sequencing과 관련한 정보를 사용하므로 기본 세팅인 v2를 사용
+    - Non-coding region 및 hg38 특이적인 정보가 필요한 경우에는 v3를 사용
+    - 기본적으로 유전자에 대한 정보를 제공하며, 아래에서 분석에 사용된 exon 및 coverage 확인이 가능
+    - 대부분의 region에서는 mean depth 가 30x가 훨씬 넘으므로 read quality 가 문제가 되는 경우는 드문 편
+    - gnomAD 의 가장 큰 특징 중 하나는 비교적 정상인의 phenotype인 대상자에 대한 분석을 진행한 것으로, 예상 변이 수 대비 실제로 발견한 변이의 수를 비교하여 Constraint 로 제공
+    - pLoF 에 해당하는, 주요한 변이의 수에 따라서 해당 유전자의 LoF가 lethal 한지의 여부를 pLI score (probability of being loss-of-function intolerant)로 확인 가능
+      - 1에 가까울수록 pLoF가 intolerant, 즉 lethal gene 에 해당. 일반적으로 0.9 이상인 유전자는 intolerable gene 에 해당
+    - 이들은 대체로 정상인에게서 유래한 변이이므로, 다수 관찰되는 변이는 희귀질환을 유발하지 않을 가능성이 큼
+    
+<center>![](figures/346.png)</center> <br>
+
+  - GTEx (Tissue Specific Gene Expression and eQTL)
+    - GTEx는 많은 수의 인간 기증자에서 전신 조직별로 RNA-seq을 진행 -> 이를 기반으로 조직별 expression 이 어떤 DNA loci에 의해서 조절되는지를 계산한 결과를 eqtl로 발표
+    - 가장 흔한 쓰임은 target 유전자가 각 조직에서 얼마나 발현되는지 확인하는 것
+    - 실제 dataset의 규모를 이해하기 위해서 먼저 GTEx에서 분석에 사용한 샘플의 숫자 및 현황을 화살표로 표시한 summary page 를 통해 확인
+    - 54 종류 정도의 tissue들을 900 여명의 donor 분들께 얻고, RNA의 quality 를 판단하는 RNA integrity number 5.5 넘는 샘플을 분석에 사용
+    - 어디까지나 정상인 기반의 mRNA level 을 RNA-seq 확인
+    - 단백질이나 암 등의 데이터가 필요하시다면 Human Protein Atlas 등을 참고
+    
+<center>![](figures/347.png)</center> <br>
+  
+  - ENCODE (DNA element)
+    - DNA chip seq dataset 을 비롯한 실험 정보를 제공
+    - DNA element에 대한 광범위한 실험 정보 및 데이터를 정리하여 제공
+    - 최근 DNA element에 연구는 대부분의 경우 NGS를 이용하여 high-throughput 하게 진행되므로, ENCODE 역시 여러  ngs를 이용하는 실험 정보를 정리해서 제공
+    - 실험 정보는 생물종, 유래 조직, 실험 종류별로 큰 차이를 보이므로 portal 에서 필요한 정보를 선별하고, export할 필요
+    - 여러 프로젝트를 종합적으로 제공하며 biosample type 역시 다양
+    - Assay 의 경우 DNA binding 정보나 Transcription 정보가 가장 많음
+    - 앞서 gnomad와 같이 단순히  target을 검색해 보는 방법도 있지만, 여러개의 실험을 category 별로 보시기에는 이 쪽이 더 도움
+    - UCSC genome browser 에 export하여 필요한 부분을 찾아보거나, UCSC table browser 를 이용하여 여러 data를 모아서 export 할 수 있도록 하는 기능이 존재
+    - 실제 데이터를 각각 다운로드 받을수 있는 기능도 ENCODE 내에 존재 -> 현실적으로 이 모든 파일을 각각 분석하시는 것 보다는, UCSC를 이용하는 방법을 사용하거나 한가지 실험에 대한 파일만 다운로드
+    
+<center>![](figures/348.png)</center> <br>
+    
+  - GEO (Gene Expression Omnibus, Gene Expression Datasets and raw files from SRA)
+    - NGS 및 Microarray expression dataset 및 다양한 NGS RAW data 제공
+    - Microarray 및 sequencing 데이터 중 일정한 포맷을  만족시키는 데이터는 논문 출판시 GEO나 유사한 데이터베이스에 업로드한 뒤, Accession Number를 표시해야 하는 경우가 많음
+    - GEO Dataset은 아까 말씀드린 대로, Curated된 것 뿐만 아니라 미리 내부에서 분석해 둔 데이터셋
+    - 보통은 개별 데이터를 얻으시기 보다는 아래 summary data만 보셔도 충분 <br><br>
+    
+  - UK Biobank (Some introductions)
+    - UK biobank는 50만명의 UK 사람들의 genetic, health data를 모으는 연구
+    - 데이터를 받기 위해 가입, 승인 절차 있으며 데이터 제공 비용이 청구될 수 있음
+
+### WES과 Mendelian 질병 원인 규명법
+
+<center>![](figures/349.png)</center> <br>
+<center>![](figures/350.png)</center> <br>
+
+  - Trio를 사용하여 분석, de novo 확인
+  
+  - 1. How to process and analyze Whole Exome Sequencing results.
+  - 2. Inheritance pattern of Mendelian disease.
+  - 3. Why inheritance? : application of WES analysis
+  
+<center>![](figures/351.png)</center> <br>
+<center>![](figures/352.png)</center> <br>
+  - BAM file: 101M -> lead 101개의 nucleotide가 있는데 reference genome가 matching이 되었다는 의미
+  
+<center>![](figures/353.png)</center> <br>
+<center>![](figures/354.png)</center> <br>
+  - Annotation: Functional impact, amino acid change, gene name, 종 간 비교를 통해 종 간 유사도가 높은 allele의 변화라면 pathogenic
+  - **ANNOVAR**는 tab으로 구분되는 output file, line의 길어지면서 여러가지 변이를 분석하기에 한계가 있음. **SnpEff** 전체적인 output file은 깔끔하게 정리되어 있음.
+
+<center>![](figures/355.png)</center> <br>
+
+  - Key information
+    - Genetype : 0/0: Reference, 0/1: Heterozygous, 1/1: Homozygous
+    - MAF(Minor allele frequency) : Non-Reference allele / Total allele
+      - Homozygous : MAF = 1, Heterozygous : 0.3 < MAF < 0.7
+    - Genotype Quality should be equal to or greater than 60
+  
+  - ExAC 1/1000로 조정 -> 일반인에게서 나타나지 않는 변이를 추출
+
+### RNA sequencing 데이터 분석
+
+  - Central Dogma
+  - DNA is extremely stable
+  - RNA is extremely versatile
+    - RNA world hypothesis
+  - Protein can form extremely complex structures
+  
+<center>![](figures/356.png)</center> <br>
+
+  - **혼자 정리학는 유전학**
+    - 전사체(Transcriptome): DNA에서 RNA로 서열정보가 전달되는 과정을 전사(Transcription)라고 하며 전사체는 전사를 의미하는 용어에 "ome"이 붙은 용어로 "특정 기준으로 나뉘어진 특정 물질의 전부"를 의미함. 즉, 전사체는 전사로 인해 만들어진 물질들의 총합(all RNA)을 의미함.
+    - 전사체를 분석하는 가장 주된 이유는 전사체 분석을 통해 각 생명체가 "발현 중인" 유전자를 폭넓게 파악할 수 있다는 점
+    - 유전체에 들어있는 모든 유전자는 항상 발현되는 것은 아니며 생명체는 자신이 가진 유전자를 특정 상황에 맞게 발현시켜 외부 환경에 대응
+    - 전사체를 분석하게 되면 각 이러한 유전자들의 발현량을 수치로 확인할 수 있으며 이를 통해 어떤 생물체가 특정 환경에서 어떻게 대응하는지를 파악할 수 있음
+    - central dogma에 입각하여 transcript의 수가 많을 수록 발현이 많이 된다고 판단하여 계산하는 방법
+    - 전사체 분석 방법에는 DNA microarray와 RNA seq이 있음
+    - NGS 상용화 이전에는 DNA microarray가 많이 사용된 방법으로 이 방법은 이미 서열을 알고 있는 유전자를 선택하고 해당 유전자에서 발현된 RNA와 상보적인 서열을 갖는 DNA 단편을 grid에 고정화시키는 방식으로 이루어짐.
+    - NGS에 비해 저렴하고 상당히 오래된 기술로 표준이 잘 잡혀있고 신뢰도가 높음. 그러나 특정 생물체에 대한 정확한 유전정보가 어느정도 확보되어야 하고 필요한 RNA양이 상대적으로 많은 문제가 있음.
+    - 반면 NGS를 통해 발전해온 RNA-seq, 여러 bioinformatics를 하는 랩에서는 DEG(differentially expressed gene)을 뽑아내는 것이 실험의 목적이 되겠는 데 그걸 위해 서로 다른 조건에서 다르게 발현되는 유전자가 무엇인지 시퀀싱을 통해 확인하는 것
+    - 일반적으로 RNA-seq 이후 사후 실험으로 western blot을 진행해 실제로 단백질의 발현이 달라졌는가를 검증하는 validation 실험을 함<br><br>
+  
+  - RNA seq
+    - messenger RNA (mRNA) --> mRNA-seq
+    - long intergenic noncoding RNA (lincRNA = 200 nt 이상 / intergenic = gene과 gene 사이에 위치하는 / non-coding = 단백질을 직접 코딩하지 않는 / RNA)  --> Total RNA-seq을 하는게 맞음
+      - lincRNA가 중요한 점은 유전체의 51.8% 전사가 일어나는 데 그 중에서 실제로 1.2% 만이 단백질을 생성하고 나머지 많은 부분을 lincRNA가 차지
+      - lincRNA는 유전자의 조직 특이적 발현을 조절하는데 중요하게 기여
+    - ribosomal RNA: 거의 변이가 없음
+    - transfer RNA
+
+#### Bulk RNA-Sequencing
+
+  - RNA는 불안정하기 때문에 얼른 cDNA로 합성하고 이 때 RNA의 poly(A)와 상보적인 oligo dT를 프라이머로 사용함. 그리고 나서 실제 시퀀싱은 illumina가 가장 통용되어 사용함.
+  - 긴 cDNA는 읽을 수가 없기 때문에 500bp fragmentation 시행
+
+<center>![](figures/357.png)</center> <br>
+<center>![](figures/358.png)</center> <br>
+<center>![](figures/359.png)</center> <br>
+<center>![](figures/360.png)</center> <br>
+  - QC-1: Raw data quality assessment
+    - qualimap fastqc: per base sequence quality -> x축은 하나의 lead의 base, y축은 quality score, 30점이상 99.9% 이상 20점이상 99.0% 이상의 정확도 -> 따라서 20-30점이상의 점수가 나와야 함.
+    
+<center>![](figures/361.png)</center> <br>
+
+  - 초반에 Tophat, HISAT 많이 사용, 최근에는 RSEM이나 STAR2 사용, STAR2 가장 많이 사용(서울대)
+  - Alignment quality assessment
+    - overall read mapping rate가 떨어지는 이유: 인간 샘플의 경우 90% 이상은 되어야 잘 된 것임. 처음에 보냈던 RNA 샘플의 quality가 떨어졌거나 중간에 library preparation 과정에서 잘못 되었거나 어떤 step에서 contamination
+    - sequence의 길이가 짧게 온 경우 회사에 요청해서 추가적인 생산을 요구할 수 있음
+
+<center>![](figures/362.png)</center> <br>
+<center>![](figures/363.png)</center> <br>
+<center>![](figures/364.png)</center> <br>
+
+  - Raw count, RPKM 계산
+    - RNA-seq을 통해 mapping 되어있는 read의 수를 가지고 각 sample의 유전자 별 혹은 transcript 별로 발현 정도를 확인할 수 있음. 하지만 mapping된 read의 개수로 발현량을 정의하기에는 sample 별로 데이터의 크기가 다를 수도 있고, 유전자나 transcript 길이에 따라 mapping된 read의 수도 다를 수 있기 때문에 상대적인 값을 이용하여 발현량을 표시하는 방법을 사용 해야함 (Normalization method)
+    - RPKM = Reads Per Kilobase per Millions Mapped reads, 전체 유전자의 길이를 kilobase로 정규화했을 때, 전체 reads 중에서 해당 gene에 mapping된 reads들을 말하게 됨
+
+<center>![](figures/365.png)</center> <br>
+<center>![](figures/366.png)</center> <br>
+
+  - Quantitation: count
+    - htseq-count, featureCount: 어느정도 까지 붙었을 때를 그 유전자라고 count할 것인가? -> 옵션으로 설정 가능
+
+#### RNA-seq analysis using DESeq2
+
+  - DEG analysis (세포들 사이에서어떤 RNA가 발현하고 있는지 확인) -> Gene enrichment를 통해 어느 pathway, region인지 확인
+    - PCA
+    - DEG matrix -> volcano plot
+    - Heatmap & Gene ontology analysis -> GO analysis with EnrichR
+
+<center>![](figures/366.png)</center> <br>
+<center>![](figures/367.png)</center> <br>
+
+### Single cell RNA sequening 데이터 분석
+
+<center>![](figures/368.png)</center> <br>
+
+  - MEMS 기술을 활용하여 single cell RNA 분석을 진행.
+  - 바코드에 polyT가 있어 RNA의 polyA와 결합하는 방식을 활용함.
+  - 인체 조직 전반에 걸쳐 세포 유형, 상태, 상호작용의 다양성이 존재한다. 이러한 조직과 존재하는 세포 유형을 더 잘 이해하기 위해, single-cell RNA-seq (scRNA-seq)는 개별 세포의 수준에서 어떤 유전자가 발현되고 있는지 엿볼 수 있게 해준다.
+  - scRNA-seq의 단점은 공간적인 정보가 모두 사라짐 -> 실제 조직에서 Immunochemistry를 시행하여 확인한다.
+
+<center>![](figures/369.png)</center> <br>
+<center>![](figures/370.png)</center> <br>
+
+#### Single cell RNA sequening 데이터 분석 실습
+
+<center>![](figures/371.png)</center> <br>
+<center>![](figures/372.png)</center> <br>
+<center>![](figures/373.png)</center> <br>
+<center>![](figures/374.png)</center> <br>
+<center>![](figures/375.png)</center> <br>
+<center>![](figures/376.png)</center> <br>
+<center>![](figures/377.png)</center> <br>
+<center>![](figures/378.png)</center> <br>
+<center>![](figures/379.png)</center> <br>
+<center>![](figures/380.png)</center> <br>
+<center>![](figures/381.png)</center> <br>
+
+### Somatic disease의 유전체적 접근과 이해
+
+<center>![](figures/382.png)</center> <br>
+
+### WGS 데이터 분석
+
+<center>![](figures/383.png)</center> <br>
+<center>![](figures/384.png)</center> <br>
+
+  - WGS vs WES ?
+    - 지금까지 전혀 연구되지 않은 질환에 대한 유전 연구를 하겠다 (WES)
+    - 이미 WES으로 연구가 많이 되었으나 unmet need가 있다 (WGS)
+    - Candidate gene이 있는 데 변이를 못찾겠다 (WGS)
+    - RNA-seq으로 splicing 문제가 있는 데 변이를 못찾겠다 (WGS)
+  
+  - Variant calling (SNP/indel)
+  - Structural variant calling
+
+<center>![](figures/385.png)</center> <br>
+<center>![](figures/386.png)</center> <br>
+<center>![](figures/387.png)</center> <br>
+
+## CHIP-seq 염색질 3차 구조 분석 (정인경)
+
+## 단일세포전사체분석 개요 (김종경)
+
+## 바이오데이터마이닝을 위한 기계학습 (황규백)
+
+## 한국인칩을 이용한 대규모 유전체정보 분석 (김봉조)
+
+## 유전체역학 (박지완)
+
+### Genome Epidemiology
+  - Genomic Medicine
+    - Family-based Genetic Study
+    - Population-based Genomic Study
+      - Translational Genomics
+      - Personalized Medicine
+  - 유전역학
+    - 가계 내 질병의 원인, 분포, 관리 및 인구 집단 내 질병의 유전적 원인을 연구하는 학문
+    - 인구 집단 내 건강 및 질병에 대한 유전체 변이의 영향을 평가하기 위한 역학적 방법 및 접근 방식의 적용에 관한 학문
+    
+<center>![](figures/144.png)</center> <br>
+<center>![](figures/145.png)</center> <br>
+<center>![](figures/146.png)</center> <br>
+<center>![](figures/147.png)</center> <br>
+<center>![](figures/148.png)</center> <br>
+<center>![](figures/149.png)</center>
+  - Recombination은 Meiosis prophase 1에서 발생
+<center>![](figures/150.png)</center> <br>
+<center>![](figures/151.png)</center> <br>
+<center>![](figures/152.png)</center> <br>
+
+  - Allele (유전변이형, 대립유전자)
+  - Genotype (유전자형)
+    - Homozygous (동형접합): AA, aa
+    - Heterozygous (이형접합): Aa
+  - Haplotype (반수체형): AB, Ab, aB, BB
+  - Diplotype (이배체형): AABB, AABb, ..., aaBb, aabb
+
+  - 유전 변이 (Genetic variation)
+    - 개인과 개인의 염기서열은 99.9%가 동일
+    - 형질의 다양성 (Phenotypic variablity) 결정
+      - 형태 생리적 차이
+      - 질병감수성 (disease susceptibility)
+      - 약물반응성
+      - 개인의 성격, 재능, 특성 등
+    - 돌연변이 (mutation): 염기서열의 영구적 변형
+    - 유전적 다형성 (Genetic Polymorphism) > 1%
+    - 생식세포 돌연변이 (Germline Mutation): 유전
+    - 체세포 돌연변이 (Somatic Mutation): 유전안됨
+      - 체세포 mosaicism (cancer) 
+
+<center>![](figures/153.png)</center> <br>
+<center>![](figures/154.png)</center> <br>
+
+  - **유전자형-질병 관련성** -> 유전역학의 주요주제
+    - 직접적(Direct): AA & AO 유전자형에 따른 혈액형 A
+    - 복합적(Complicated): Serum APOE 농도는 APOE 유전자형과 환경적 요인의 상호작용 결과
+
+<center>![](figures/155.png)</center> <br>
+<center>![](figures/156.png)</center> <br>
+<center>![](figures/157.png)</center> <br>
+<center>![](figures/158.png)</center> <br>
+<center>![](figures/159.png)</center> <br>
+
+  - Common disease-common variant hypothesis 만으로 모든 유전자를 설명할 수 없다 (missing heritability)
+  - 이제 WGS 데이터를 분석해야한다 (rare variant) 쪽으로 연구방향이 흘러감
+  
+<center>![](figures/160.png)</center> <br>
+<center>![](figures/161.png)</center> <br>
+<center>![](figures/162.png)</center> <br>
+<center>![](figures/163.png)</center> <br>
+<center>![](figures/164.png)</center> <br>
+
+  - Causal inference
+    - Temporal Relationship (Time-Response)
+    - Strength of Association
+    - Dose-Response Relationship
+    - Biological Plausibility
+    - Replication of the Findings
+    - Specificity of Exposure
+    - Consideration of Alternative Explanations
+    - Cessation of Exposure
+    - Consistency with Other Knowledge
+    - Experimental evidence
+
+### Genome-Wide Association Study
+
+<center>![](figures/166.png)</center> <br>
+<center>![](figures/167.png)</center> <br>
+<center>![](figures/168.png)</center> <br>
+<center>![](figures/169.png)</center> <br>
+<center>![](figures/170.png)</center> <br>
+<center>![](figures/171.png)</center> <br>
+<center>![](figures/172.png)</center> <br>
+<center>![](figures/173.png)</center> <br>
+
+  - Hardy-Weinberg equilibrium is a principle stating that the genetic variation in a population will remain constant from one generation to the next in the absence of disturbing factors.
+  - HWE 는 이상적인 상태에서 발생함
+  - 실무적으로는 HWE p-value > 0.05인 결과를 보여주면, 적절히 quality control이 된 자료로 분석했다는 의미임
+
+<center>![](figures/174.png)</center> <br>
+<center>![](figures/175.png)</center> <br>
+<center>![](figures/176.png)</center> <br>
+<center>![](figures/177.png)</center> <br>
+<center>![](figures/178.png)</center> <br>
+<center>![](figures/179.png)</center> <br>
+<center>![](figures/180.png)</center> <br>
+<center>![](figures/181.png)</center> <br>
+<center>![](figures/182.png)</center> <br>
+<center>![](figures/183.png)</center> <br>
+<center>![](figures/184.png)</center> <br>
+<center>![](figures/185.png)</center> <br>
+<center>![](figures/206.png)</center> <br>
+<center>![](figures/207.png)</center> <br>
+<center>![](figures/208.png)</center> <br>
+<center>![](figures/209.png)</center> <br>
+<center>![](figures/210.png)</center> <br>
+<center>![](figures/211.png)</center> <br>
+<center>![](figures/212.png)</center> <br>
+<center>![](figures/213.png)</center> <br>
+
+  - Haploview는 JAVA가 필요함, 요새는 PLINK 안에 내장되어 있음
+  - exclude > 99% missing genotypes
+
+<center>![](figures/214.png)</center> <br>
+<center>![](figures/215.png)</center> <br>
+<center>![](figures/216.png)</center> <br>
+<center>![](figures/217.png)</center> <br>
+<center>![](figures/218.png)</center> <br>
+
+  - .ped file
+    - FID Family, IID individual, PID paternal, MID maternal, Sex, P(henotype)
+
+```{r, eval=FALSE}
+## Data Quality Control
+> plink --noweb --file test_1000 --mind 0.05 --geno 0.05 --maf 0.01 --hwe 1e-6 --make-bed --out test_QC
+
+## Convert ped/map files binary files (fam/bed/bim)
+--make-bed --out test_QC
+
+## Data QC
+# Sample QC (Missingness per individual)
+--mind 0.05
+# High-gentotyping rate: > 95%의 genotype data가 있는 sample만 분석
+
+# Genotype QC
+--geno 0.05
+# > 95%의 genotype data가 있는 SNP만 분석
+
+# Common SNPs with minor allele frequency (MAF) > 1% - common variants
+--maf 0.01
+# MAF < 1% - rare varinats 
+
+# SNPs in HWE (p-value)
+--hwe 1e-6
+
+```
+  
+<center>![](figures/219.png)</center> <br>
+<center>![](figures/220.png)</center> <br>
+<center>![](figures/221.png)</center> <br>
+<center>![](figures/222.png)</center> <br>
+<center>![](figures/223.png)</center> <br>
+<center>![](figures/224.png)</center> <br>
+<center>![](figures/225.png)</center> <br>
+<center>![](figures/226.png)</center> <br>
+<center>![](figures/227.png)</center> <br>
+<center>![](figures/228.png)</center> <br>
+
+### Genome Sequencing Data Analysis
+
+<center>![](figures/186.png)</center> <br>
+<center>![](figures/187.png)</center> <br>
+<center>![](figures/188.png)</center> <br>
+<center>![](figures/189.png)</center> <br>
+<center>![](figures/190.png)</center> <br>
+
+  - rare variant를 찾기 위해서는 상당히 큰 사이즈의 샘플이 필요함
+  - NGS
+    - WGS
+    - WES
+    - Targeted sequencing
+  - Standard analysis for WGS
+    1) Raw data quality control
+    2) Alignment against reference genome
+    3) Genome-wide variation identification: WGS can potentially discover all genetic variants (including common variants, low frequency variants, and rare variants)
+    4) Evolutional genetics analysis
+    5) Identification of variants for rare diseases
+    6) GWAS (for common diseases)
+      - SNP-traits association study
+      - Indel-traits association study
+      - Candidate gene
+    
+    
+<center>![](figures/191.png)</center> <br>    
+<center>![](figures/192.png)</center> <br>     
+    
+  - Association analysis using NGS data (for complex traits)
+    1) Consideration for rare variants
+    2) Association analysis using EPACTS
+    3) Study examples using NGS data
+    4) EPACTS 실습
+
+  - 1. Rare Variants
+    - Low allele frequency: usually less than 1%
+    - Low power: for most analyses, due to less variation of observations
+    - High false positive rate: for some model-based analyses, due to sparse distribution of data, unstable/biased parameter estimation and inflated p-value
+      - Previous GWAS focused on chips designed for MAF > 0.05 (most powered for MAF > 0.10)
+    - Strategy to analyze rare variants in association analysis?
+    
+  - The analysis of rare variants is more challenging than that of common variants
+    1) A large sample size is needed for simply observing a rare variant with a high probability (For example, sampling alleles with a 0.5% or 0.05% frequency with 99% probability requires sequencing at least 460 or 4,600 individuals, respectively, even if perfect detection is assumed)
+    2) standard single-variant association analysis is underpowered to detect rare-variant associations (Numerous region or gene-based multimarker tests have been proposed in recent years)
+    
+  - Single-variant tests
+    - Single-variant tests are less powerful for rare variants that for common variants with identical effect sizes
+    - For example, with an odds ratio (OR) = 1.4 and 5% disease prevalence to achieve 80% power
+
+|MAF|Sample size|
+|---|---|
+|0.1|6,400|
+|0.01|54,000|
+|0.001|540,000|
+
+
+  - Single-variant tests are still a useful tool for rare-variant analysis, if
+    1) the sample sizes are large enough
+    2) the effects are ver large
+    3) the variants are not too rare
+    
+  - Gene- or region-based aggregation tests of multiple variants
+    - Aggregation tests evaluate cumulative effects of multiple genetic variants in a gene or region, increasing power when multiple variants in the group are associated with a given disease or trait
+    
+<center>![](figures/193.png)</center> <br>    
+<center>![](figures/194.png)</center> <br>  
+<center>![](figures/195.png)</center> <br> 
+
+  - 2. Association analysis using EPACTS
+    - Efficient and Parallelizable Association Container Toolbox
+    - A versatile software pipeline to perform various statistical test for identifying genome-wide association from sequencing data (VCF file) through a user-friendly interface
+    - The official release of EPACTS software is available at https://github.com/statgen/EPACTS
+    - R and gnuplot must be installed in order to run EPACTS correctly
+    
+<center>![](figures/196.png)</center> <br>     
+<center>![](figures/197.png)</center> <br>
+
+  - 3. Study example using WGS data
+
+<center>![](figures/198.png)</center> <br> 
+<center>![](figures/199.png)</center> <br> 
+<center>![](figures/200.png)</center> <br> 
+<center>![](figures/201.png)</center> <br>
+<center>![](figures/202.png)</center> <br>
+
+  - VCF file conversion to PLINK-format
+  - 단순히 microarray 분석만 진행하던 것을 WGS WES 데이터를 활용하여 GWAS를 시행
+  
+  - 4. EPACTS 실습: 리눅스(Linux)를 이용한 실습
+    - 리눅스란??
+      - 리눅스는 유닉스타입의 운영체제로 리누스 토발즈에 의해 그 커널이 최초로 개발
+      - 이후 전 세계 수많은 프로그래머들에 의해 지속적으로 개발
+      - 초기에는 서버용 운영체제였으나 점차 데스크탑용으로도 그 사용이 늘어나고 있어 서버/데스크탑용 운영체제로서 각광
+      - 운영체제의 종류에는 여러가지가 있으며 대표적인 것이 Windows, Linux 등이 각기 다른 목적으로 개발됨
+      - 리눅스의 장점
+        - 공개운영체제
+        - PC용 OS보다 안정적
+        - 무료
+        - 하드웨어의 기능을 알차게 사용
+        - 강력한 네크워크를 구축
+        - 강력한 보안기능
+        - 인터넷의 모든 기능을 지원 <br>
+
+```{r, eval=FALSE}
+# 2) test.vcf 파일을 gz 파일로 압축
+$ bgzip test.vcf
+$ ls
+  testPheno.ped	test.vcf.gz
+```
+
+```{r, eval=FALSE}
+# 3) test.vcf.gz 파일을 tabix 로 인덱싱
+$ tabix -p vcf test.vcf.gz
+$ ls
+  testPheno.ped	test.vcf.gz	test.vcf.gz.tbi
+```    
+
+```{r, eval=FALSE}
+# 4) Single variant test (for case-control association analysis)
+$ mkdir bscore
+$ epacts single --vcf test.vcf.gz --ped testPheno.ped --min-maf 0.05 --chr 20 --pheno DISEASE --cov SEX --cov AGE --test b.score --anno --out bscore/test --run 2
+```     
+
+```{r, eval=FALSE}
+# 4) Single variant test (for case-control association analysis)
+$ head test_bscore.epacts.top5000
+``` 
+
+<center>![](figures/203.png)</center> <br>
+<center>![](figures/204.png)</center> <br>
+<center>![](figures/205.png)</center> <br>
+
+```{r, eval=FALSE}
+# 5) Single variant EMMAX test (for QT association analysis)
+$ mkdir emmax
+
+# Creating kinship matrix (for population structure and hidden relatedness)
+$ epacts-make-kin --vcf test.vcf.gz --ped testPheno.ped --min-maf 0.01 --min-callrate 0.95 --chr 20 --out test.kinf --run 2
+
+# Perform single variant EMMAX association (emmax is based on linear model, so it fits better to QT than binary traits)
+$ epacts-single --vcf test.vcf.gz --ped testPheno.ped --kinf test.kinf --pheno QT --cov AGE --cov SEX --min-maf 0.001 --chr 20 --test q.emmax --out emmax/test_emmax --run 2
+``` 
+
+```{r, eval=FALSE}
+# 6) Gene-wise or group-wise burden test
+$ mkdir skat
+
+# Annotating VCF file using EPCTS
+$ epacts-anno --in test.vcf.gz --out testAnno.vcf.gz
+
+# Creating maker group file
+$ epacts-make-group --vcf testAnno.vcg.gz --out testAnno.grp --format epacts --nonsyn
+
+# Running group-wise test
+$ epacts-group --vcf testAnno.vcf.gz --groupf testAnno.grp --ped testPheno.ped --pheno QT --cov AGE --cov SEX --max-maf 0.05 --test skat --skat-o --out skat/test_skat --run 2
+```
+
+### Survival Analysis
+
+<center>![](figures/229.png)</center> <br>
+<center>![](figures/230.png)</center> <br>
+<center>![](figures/231.png)</center> <br>
+<center>![](figures/232.png)</center> <br>
+<center>![](figures/233.png)</center> <br>
+<center>![](figures/241.png)</center> <br>
+<center>![](figures/242.png)</center> <br>
+<center>![](figures/243.png)</center> <br>
+<center>![](figures/244.png)</center> <br>
+<center>![](figures/245.png)</center> <br>
+
+### Gene-Enviroment Interaction
+<center>![](figures/246.png)</center> <br>
+<center>![](figures/247.png)</center> <br>
+<center>![](figures/248.png)</center> <br>
+<center>![](figures/249.png)</center> <br>
+<center>![](figures/250.png)</center> <br>
+<center>![](figures/251.png)</center> <br>
+<center>![](figures/252.png)</center> <br>
+<center>![](figures/253.png)</center> <br>
+<center>![](figures/254.png)</center> <br>
+<center>![](figures/255.png)</center> <br>
+<center>![](figures/256.png)</center> <br>
+<center>![](figures/257.png)</center> <br>
+<center>![](figures/258.png)</center> <br>
+<center>![](figures/259.png)</center> <br>
+<center>![](figures/260.png)</center> <br>
+<center>![](figures/261.png)</center> <br>
+<center>![](figures/262.png)</center> <br>
+<center>![](figures/263.png)</center> <br>
+<center>![](figures/264.png)</center> <br>
+
+### Mendelian Randomization (MR)
+
+#### 배경 및 기본이론
+  - Causality --> RCT or IV (instrumental variable)
+  
+<center>![](figures/265.png)</center> <br>
+<center>![](figures/266.png)</center> <br>
+<center>![](figures/267.png)</center> <br>
+
+  - 부모님으로부터 무작위로 할당받은 유전자 정보가 IV로써 특정 변수를 통해 outcome에 영향을 미치는 경우
+  - Observational study에서 모든 Confounding을 보정할 수는 없음
+  - 우리는 Confounding 범벅에서 연구를 하는 것이다
+  - Assumption이 강력하지만 그만큼 인과관계를 따질 수 있는 연구 형태
+
+<center>![](figures/268.png)</center> <br>
+
+  - Source of observational study limitations
+    - Measurement Error
+      - Sensitivity/Specificity/Reliability of measurement (Questionnaire Assessment, etc.)
+      - Fail to reproduce/recall the past experience
+      - Largely variable factors: seasonal, circadian, or random
+    - Confounding
+      - Unmeasured confounding
+      - Residual confounding
+    - Reverse causation
+      - Study design
+      - Biological interrelationship: Is it a cause or just marker?
+      
+<center>![](figures/269.png)</center> <br>      
+<center>![](figures/270.png)</center> <br>
+<center>![](figures/271.png)</center> <br>
+<center>![](figures/272.png)</center> <br>
+
+  - Standard (one sample) MR
+    - Standard MR uses a single exposure
+    - Two stage MR
+    - Two step MR
+    - Factorial MR
+  
+  - Two sample MR (X, Y의 집단이 다른 경우)
+    - Univariable MR - X
+    - Multivariable MR - X1, X2, X3, X4 ...
+    - Radial MR
+    - MRTrix
+    
+<center>![](figures/273.png)</center> <br>
+<center>![](figures/274.png)</center> <br>
+<center>![](figures/275.png)</center> <br>
+<center>![](figures/276.png)</center> <br>
+<center>![](figures/277.png)</center> <br>
+<center>![](figures/278.png)</center> <br>
+<center>![](figures/279.png)</center> <br>
+<center>![](figures/280.png)</center> <br>
+<center>![](figures/281.png)</center> <br>
+<center>![](figures/282.png)</center> <br>
+<center>![](figures/283.png)</center> <br>
+<center>![](figures/284.png)</center> <br>
+<center>![](figures/285.png)</center> <br>
+<center>![](figures/286.png)</center> <br>
+<center>![](figures/287.png)</center> <br>
+
+  - Limitation to MR
+    - Pleiotropy
+      - A genetic variant associated with multiple risk factors
+    - Population stratification
+      - Variation of the allele frequency and exposure distribution
+    - Canalisation
+      - "The suppression of phenotyping variation"
+      - a measure to produce the same phenotype regardless of variability of its environment or genotype
+    - Power (also "weak instrument bias")
+      - An instrument is 'weak' if it has only a slight effect on the exposure of interest
+      - only explains a small amount of the variation of the exposure
+
+#### Standard MR 실습
+
+<center>![](figures/288.png)</center> <br>
+<center>![](figures/289.png)</center> <br>
+<center>![](figures/290.png)</center> <br>
+<center>![](figures/291.png)</center> <br>
+<center>![](figures/292.png)</center> <br>
+<center>![](figures/293.png)</center> <br>
+<center>![](figures/294.png)</center> <br>
+<center>![](figures/295.png)</center> <br>
+<center>![](figures/296.png)</center> <br>
+
+#### Two-sample MR 실습
+
+<center>![](figures/297.png)</center> <br>
+<center>![](figures/298.png)</center> <br>
+<center>![](figures/299.png)</center> <br>
+<center>![](figures/300.png)</center> <br>
+<center>![](figures/301.png)</center> <br>
+<center>![](figures/302.png)</center> <br>
+
+#### Radial 실습
+<center>![](figures/303.png)</center> <br>
+<center>![](figures/304.png)</center> <br>
+<center>![](figures/305.png)</center> <br>
+<center>![](figures/306.png)</center> <br>
+<center>![](figures/307.png)</center> <br>
+
+#### Result
+<center>![](figures/308.png)</center> <br>
+<center>![](figures/309.png)</center> <br>
+<center>![](figures/310.png)</center> <br>
+
+## 단일세포 전사체 분석 기술을 이용한 암 연구 (이세민)
+
+## 빅데이터 분석 기법을 활용한 다중 오믹스 데이터 분석

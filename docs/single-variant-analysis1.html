@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>2.5 Single Variant Analysis1 | Genetics with Bioinformatics</title>
+  <meta name="description" content="null" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="2.5 Single Variant Analysis1 | Genetics with Bioinformatics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="null" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2.5 Single Variant Analysis1 | Genetics with Bioinformatics" />
+  
+  <meta name="twitter:description" content="null" />
+  
+
+<meta name="author" content="Minkook Son" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="linkage-analysis.html"/>
+<link rel="next" href="single-variant-analysis2.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Genetics with Bioinformatics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="chapter" data-level="1" data-path="bitec---rbioconductor.html"><a href="bitec---rbioconductor.html"><i class="fa fa-check"></i><b>1</b> BITEC - R/Bioconductor</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html"><i class="fa fa-check"></i><b>1.1</b> Introduction for microarrays</a></li>
+<li class="chapter" data-level="1.2" data-path="quality-control-in-microarrays.html"><a href="quality-control-in-microarrays.html"><i class="fa fa-check"></i><b>1.2</b> Quality control in microarrays</a></li>
+<li class="chapter" data-level="1.3" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html"><i class="fa fa-check"></i><b>1.3</b> Normalization for microarray experiments</a></li>
+<li class="chapter" data-level="1.4" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>1.4</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bitec--statistical-methods-for-genetic-epidemiology.html"><a href="bitec--statistical-methods-for-genetic-epidemiology.html"><i class="fa fa-check"></i><b>2</b> BITEC- Statistical Methods for Genetic Epidemiology</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html"><i class="fa fa-check"></i><b>2.1</b> Statistical Genetics Basic Background1</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#genetics"><i class="fa fa-check"></i><b>2.1.1</b> Genetics</a></li>
+<li class="chapter" data-level="2.1.2" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#basic-principles"><i class="fa fa-check"></i><b>2.1.2</b> Basic principles</a></li>
+<li class="chapter" data-level="2.1.3" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#definition"><i class="fa fa-check"></i><b>2.1.3</b> Definition</a></li>
+<li class="chapter" data-level="2.1.4" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#mendelian-segregation"><i class="fa fa-check"></i><b>2.1.4</b> Mendelian segregation</a></li>
+<li class="chapter" data-level="2.1.5" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#genotype-vs-phenotype"><i class="fa fa-check"></i><b>2.1.5</b> Genotype vs phenotype</a></li>
+<li class="chapter" data-level="2.1.6" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#traits"><i class="fa fa-check"></i><b>2.1.6</b> Traits</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html"><i class="fa fa-check"></i><b>2.2</b> Statistical Genetics Basic Background2</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#genetic-markers"><i class="fa fa-check"></i><b>2.2.1</b> Genetic markers</a></li>
+<li class="chapter" data-level="2.2.2" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#single-nucleotide-polymorphism"><i class="fa fa-check"></i><b>2.2.2</b> Single Nucleotide Polymorphism</a></li>
+<li class="chapter" data-level="2.2.3" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#linkage-disequilibrium-ld"><i class="fa fa-check"></i><b>2.2.3</b> Linkage Disequilibrium (LD)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#ld-decays-over-generation"><i class="fa fa-check"></i><b>2.2.4</b> LD decays over generation</a></li>
+<li class="chapter" data-level="2.2.5" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#idential-by-descent-ibd"><i class="fa fa-check"></i><b>2.2.5</b> Idential By Descent (IBD)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="segregation-analysis.html"><a href="segregation-analysis.html"><i class="fa fa-check"></i><b>2.3</b> Segregation Analysis</a></li>
+<li class="chapter" data-level="2.4" data-path="linkage-analysis.html"><a href="linkage-analysis.html"><i class="fa fa-check"></i><b>2.4</b> Linkage Analysis</a></li>
+<li class="chapter" data-level="2.5" data-path="single-variant-analysis1.html"><a href="single-variant-analysis1.html"><i class="fa fa-check"></i><b>2.5</b> Single Variant Analysis1</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="single-variant-analysis1.html"><a href="single-variant-analysis1.html#tag-snp"><i class="fa fa-check"></i><b>2.5.1</b> Tag SNP</a></li>
+<li class="chapter" data-level="2.5.2" data-path="single-variant-analysis1.html"><a href="single-variant-analysis1.html#ld-block-haploview"><i class="fa fa-check"></i><b>2.5.2</b> LD Block (Haploview)</a></li>
+<li class="chapter" data-level="2.5.3" data-path="single-variant-analysis1.html"><a href="single-variant-analysis1.html#association-analysis"><i class="fa fa-check"></i><b>2.5.3</b> Association analysis</a></li>
+<li class="chapter" data-level="2.5.4" data-path="single-variant-analysis1.html"><a href="single-variant-analysis1.html#genetic-association-studies"><i class="fa fa-check"></i><b>2.5.4</b> Genetic Association studies</a></li>
+<li class="chapter" data-level="2.5.5" data-path="single-variant-analysis1.html"><a href="single-variant-analysis1.html#genome-wide-association-study-gwas"><i class="fa fa-check"></i><b>2.5.5</b> Genome-wide association study (GWAS)</a></li>
+<li class="chapter" data-level="2.5.6" data-path="single-variant-analysis1.html"><a href="single-variant-analysis1.html#quality-control"><i class="fa fa-check"></i><b>2.5.6</b> Quality Control</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="single-variant-analysis2.html"><a href="single-variant-analysis2.html"><i class="fa fa-check"></i><b>2.6</b> Single Variant Analysis2</a></li>
+<li class="chapter" data-level="2.7" data-path="single-variant-analysis3.html"><a href="single-variant-analysis3.html"><i class="fa fa-check"></i><b>2.7</b> Single Variant Analysis3</a></li>
+<li class="chapter" data-level="2.8" data-path="ngs---rare-variant-analysis1.html"><a href="ngs---rare-variant-analysis1.html"><i class="fa fa-check"></i><b>2.8</b> NGS - Rare Variant Analysis1</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bitec---bioinformatics.html"><a href="bitec---bioinformatics.html"><i class="fa fa-check"></i><b>3</b> BITEC - Bioinformatics</a></li>
+<li class="chapter" data-level="4" data-path="kobic---ngs-analysis.html"><a href="kobic---ngs-analysis.html"><i class="fa fa-check"></i><b>4</b> KOBIC - NGS analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html"><i class="fa fa-check"></i><b>4.1</b> 유전체 분석의 배경</a></li>
+<li class="chapter" data-level="4.2" data-path="ngs의-기초.html"><a href="ngs의-기초.html"><i class="fa fa-check"></i><b>4.2</b> NGS의 기초</a></li>
+<li class="chapter" data-level="4.3" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html"><i class="fa fa-check"></i><b>4.3</b> NGS를 이용한 변이분석1</a></li>
+<li class="chapter" data-level="4.4" data-path="ngs를-이용한-변이분석2.html"><a href="ngs를-이용한-변이분석2.html"><i class="fa fa-check"></i><b>4.4</b> NGS를 이용한 변이분석2</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="kogo.html"><a href="kogo.html"><i class="fa fa-check"></i><b>5</b> KOGO</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="equations.html"><a href="equations.html"><i class="fa fa-check"></i><b>5.1</b> Equations</a></li>
+<li class="chapter" data-level="5.2" data-path="theorems-and-proofs.html"><a href="theorems-and-proofs.html"><i class="fa fa-check"></i><b>5.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="5.3" data-path="callout-blocks.html"><a href="callout-blocks.html"><i class="fa fa-check"></i><b>5.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ksmo.html"><a href="ksmo.html"><i class="fa fa-check"></i><b>6</b> KSMO</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6.1</b> Publishing</a></li>
+<li class="chapter" data-level="6.2" data-path="pages.html"><a href="pages.html"><i class="fa fa-check"></i><b>6.2</b> 404 pages</a></li>
+<li class="chapter" data-level="6.3" data-path="metadata-for-sharing.html"><a href="metadata-for-sharing.html"><i class="fa fa-check"></i><b>6.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Genetics with Bioinformatics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="single-variant-analysis1" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Single Variant Analysis1<a href="single-variant-analysis1.html#single-variant-analysis1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Association anaysis look for relationship between a marker and disease between families</li>
+<li>Association analysis: LD를 이용하여 모든 유전자를 모르더라도 분석을 해볼 수 있음 (indirect)</li>
+<li>GWAS(전장유전체분석)는 샘플을 많이 필요로 함
+<center>
+<img src="figures/81.PNG" />
+</center>
+<br></li>
+</ul>
+<div id="tag-snp" class="section level3 hasAnchor" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Tag SNP<a href="single-variant-analysis1.html#tag-snp" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Marker selection: Empirical studies suggest that much of the genome can be characterized as blocks of strong LD with low haplotype diversity between blocks</li>
+<li>Haplotype Tagging SNPs (htSNPs)
+<ul>
+<li>Typing all SNPs in regions of high LD would be redundant</li>
+<li>A reduced set of SNPs (htSNPs) can sufficiently represent much of common haplotype diversity in that region and reduce genotyping costs</li>
+<li>Methods for identification of htSNPs
+<ul>
+<li>Regions of high LD are defined into blocks</li>
+<li>Tagging SNPs are selected within each block</li>
+<li>Identifying makers that represent the entire region in question</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="ld-block-haploview" class="section level3 hasAnchor" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> LD Block (Haploview)<a href="single-variant-analysis1.html#ld-block-haploview" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<center>
+<img src="figures/83.PNG" />
+</center>
+<p><br></p>
+<ul>
+<li>일부만 genotyping 해서도 분석이 가능하기 때문에 비용을 줄여줄 수 있음</li>
+<li>일부의 genotyping 자료에서 reference 자료를 활용하여 imputation 알고리즘을 통해 복원 가능하고 분석 가능함</li>
+<li>따라서 chip 데이터는 전체 데이터를 genotyping 하는 것이 아니고 일부만 genotyping을 함</li>
+<li>인종이 몇 세대를 거침에 따라서 crossover 과정이 발생하여 LD block의 size가 줄어들 수 있음</li>
+<li>따라서 해당하는 나라와 인종에 맞는 디자인이 있어야만 정확하게 전체 유전자를 커버하는 칩을 제작할 수 있음 - (Korean Chip, 비용이 대략 11만원 정도)</li>
+</ul>
+<center>
+<img src="figures/84.PNG" />
+</center>
+<ul>
+<li>Tag SNP 디자인 하기 위해 사용하는 reference 데이터 사이트</li>
+<li>두 데이터에 한국인 데이터는 없음</li>
+</ul>
+</div>
+<div id="association-analysis" class="section level3 hasAnchor" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Association analysis<a href="single-variant-analysis1.html#association-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Detect association between genetic variants and disease across families: exploit linkage disequilibrium</li>
+<li>Studies with unrelated individuals
+<ul>
+<li>Case-control, Cohort designs<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+</ul></li>
+<li>Family-based studies
+<ul>
+<li>Parents-affected child trios (TDT)</li>
+</ul></li>
+<li>Appropriate for complex diseases</li>
+<li>Allele/genotype frequencies</li>
+</ul>
+</div>
+<div id="genetic-association-studies" class="section level3 hasAnchor" number="2.5.4">
+<h3><span class="header-section-number">2.5.4</span> Genetic Association studies<a href="single-variant-analysis1.html#genetic-association-studies" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>Candidate gene (locus) testing (direct method)</li>
+<li>LD mapping (indirect method)
+<ul>
+<li>Exploitation of relationship between LD and genetic distance</li>
+<li>Testing for LD between markers and disease allele</li>
+<li>Search for disease gene across the entire human genome</li>
+<li>Association scan uses ~1M markers</li>
+</ul></li>
+</ul>
+</div>
+<div id="genome-wide-association-study-gwas" class="section level3 hasAnchor" number="2.5.5">
+<h3><span class="header-section-number">2.5.5</span> Genome-wide association study (GWAS)<a href="single-variant-analysis1.html#genome-wide-association-study-gwas" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<center>
+<img src="figures/85.PNG" />
+</center>
+<br>
+<center>
+<img src="figures/86.PNG" />
+</center>
+<p><br></p>
+<ul>
+<li>plink는 좋은 툴이나 고급분석을 하는 것에는 한계가 있어서 data management에만 이용 -&gt; 나온 결괴를 R을 이용해서 분석함</li>
+<li>plink는 allele이 2개인 경우에만 분석 가능</li>
+</ul>
+<center>
+<img src="figures/87.PNG" />
+</center>
+<p><br></p>
+<ul>
+<li>데이터 용량이 매우 큼, 따라서 binary file을 이용해서 분석하는 경우가 훨씬 많음</li>
+</ul>
+</div>
+<div id="quality-control" class="section level3 hasAnchor" number="2.5.6">
+<h3><span class="header-section-number">2.5.6</span> Quality Control<a href="single-variant-analysis1.html#quality-control" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<center>
+<img src="figures/88.PNG" />
+</center>
+<br>
+<center>
+<img src="figures/89.PNG" />
+</center>
+<br>
+<center>
+<img src="figures/90.PNG" />
+</center>
+<p><br></p>
+<ul>
+<li>Hardy-Weinberg Equilibrium (HWE)
+<ul>
+<li>Both allele and genotype frequencies in a population remain constant (that is, they are in equilibrium) from generation to generation unless specific disturbing influences are introduced</li>
+<li>Assumptions for HWE
+<ul>
+<li>Large population</li>
+<li>Random mating</li>
+<li>No migration</li>
+<li>No mutation</li>
+<li>No selection</li>
+</ul></li>
+<li>For genetic association studies:
+<ul>
+<li>Used as QC measure to assess the accuracy of the genotyping method</li>
+<li>Expect SNPs to be in HWE among control populations (ethnic-specific)</li>
+<li>Violations of HWE could indicate genotyping errors or bias in data</li>
+</ul></li>
+</ul></li>
+</ul>
+<center>
+<img src="figures/91.PNG" />
+</center>
+<br>
+<center>
+<img src="figures/92.PNG" />
+</center>
+<p><br></p>
+<ul>
+<li>Missingness</li>
+</ul>
+<center>
+<img src="figures/93.PNG" />
+</center>
+<p><br></p>
+<ul>
+<li>Individual filtering
+<ul>
+<li>Cryptic relatedness</li>
+<li>Sex inconsistency</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p>우리나라의 경우 안성/안산 코호트 데이터를 활용해서 병원데이터와 함께 사용하기도함<a href="single-variant-analysis1.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linkage-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="single-variant-analysis2.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-cross-refs.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5.2 Theorems and proofs | Genetics with Bioinformatics</title>
+  <meta name="description" content="null" />
+  <meta name="generator" content="bookdown 0.27 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5.2 Theorems and proofs | Genetics with Bioinformatics" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="null" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5.2 Theorems and proofs | Genetics with Bioinformatics" />
+  
+  <meta name="twitter:description" content="null" />
+  
+
+<meta name="author" content="Minkook Son" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="equations.html"/>
+<link rel="next" href="callout-blocks.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Genetics with Bioinformatics</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>About</a></li>
+<li class="chapter" data-level="1" data-path="bitec---rbioconductor.html"><a href="bitec---rbioconductor.html"><i class="fa fa-check"></i><b>1</b> BITEC - R/Bioconductor</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html"><i class="fa fa-check"></i><b>1.1</b> Introduction for microarrays</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#transcriptome-analysis"><i class="fa fa-check"></i><b>1.1.1</b> <strong>Transcriptome analysis</strong></a></li>
+<li class="chapter" data-level="1.1.2" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#genome-analysis"><i class="fa fa-check"></i><b>1.1.2</b> <strong>Genome analysis</strong></a></li>
+<li class="chapter" data-level="1.1.3" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#microarray-technologies"><i class="fa fa-check"></i><b>1.1.3</b> Microarray Technologies</a></li>
+<li class="chapter" data-level="1.1.4" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#cdna-array-expression-level-numeric-assessment"><i class="fa fa-check"></i><b>1.1.4</b> cDNA array: Expression level numeric assessment</a></li>
+<li class="chapter" data-level="1.1.5" data-path="introduction-for-microarrays.html"><a href="introduction-for-microarrays.html#probe-set"><i class="fa fa-check"></i><b>1.1.5</b> Probe set</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="quality-control-in-microarrays.html"><a href="quality-control-in-microarrays.html"><i class="fa fa-check"></i><b>1.2</b> Quality control in microarrays</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="quality-control-in-microarrays.html"><a href="quality-control-in-microarrays.html#microarray-analysis-procedure"><i class="fa fa-check"></i><b>1.2.1</b> microarray analysis procedure</a></li>
+<li class="chapter" data-level="1.2.2" data-path="quality-control-in-microarrays.html"><a href="quality-control-in-microarrays.html#goals-of-microarray-studies"><i class="fa fa-check"></i><b>1.2.2</b> Goals of microarray studies</a></li>
+<li class="chapter" data-level="1.2.3" data-path="quality-control-in-microarrays.html"><a href="quality-control-in-microarrays.html#deg-identification"><i class="fa fa-check"></i><b>1.2.3</b> DEG identification</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html"><i class="fa fa-check"></i><b>1.3</b> Normalization for microarray experiments</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#variation-in-microarray-experiment"><i class="fa fa-check"></i><b>1.3.1</b> Variation in microarray experiment</a></li>
+<li class="chapter" data-level="1.3.2" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#normalization-goals"><i class="fa fa-check"></i><b>1.3.2</b> Normalization: Goals</a></li>
+<li class="chapter" data-level="1.3.3" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#global-vs-intensity-dependent-normalization"><i class="fa fa-check"></i><b>1.3.3</b> Global vs Intensity-dependent normalization</a></li>
+<li class="chapter" data-level="1.3.4" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#normalization-for-one-channel-slide"><i class="fa fa-check"></i><b>1.3.4</b> Normalization for one channel slide</a></li>
+<li class="chapter" data-level="1.3.5" data-path="normalization-for-microarray-experiments.html"><a href="normalization-for-microarray-experiments.html#conclusion"><i class="fa fa-check"></i><b>1.3.5</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="practice.html"><a href="practice.html"><i class="fa fa-check"></i><b>1.4</b> Practice</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="bitec--statistical-methods-for-genetic-epidemiology.html"><a href="bitec--statistical-methods-for-genetic-epidemiology.html"><i class="fa fa-check"></i><b>2</b> BITEC- Statistical Methods for Genetic Epidemiology</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html"><i class="fa fa-check"></i><b>2.1</b> Statistical Genetics Basic Background1</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#genetics"><i class="fa fa-check"></i><b>2.1.1</b> Genetics</a></li>
+<li class="chapter" data-level="2.1.2" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#basic-principles"><i class="fa fa-check"></i><b>2.1.2</b> Basic principles</a></li>
+<li class="chapter" data-level="2.1.3" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#definition"><i class="fa fa-check"></i><b>2.1.3</b> Definition</a></li>
+<li class="chapter" data-level="2.1.4" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#mendelian-segregation"><i class="fa fa-check"></i><b>2.1.4</b> Mendelian segregation</a></li>
+<li class="chapter" data-level="2.1.5" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#genotype-vs-phenotype"><i class="fa fa-check"></i><b>2.1.5</b> Genotype vs phenotype</a></li>
+<li class="chapter" data-level="2.1.6" data-path="statistical-genetics-basic-background1.html"><a href="statistical-genetics-basic-background1.html#traits"><i class="fa fa-check"></i><b>2.1.6</b> Traits</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html"><i class="fa fa-check"></i><b>2.2</b> Statistical Genetics Basic Background2</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#genetic-markers"><i class="fa fa-check"></i><b>2.2.1</b> Genetic markers</a></li>
+<li class="chapter" data-level="2.2.2" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#single-nucleotide-polymorphism"><i class="fa fa-check"></i><b>2.2.2</b> Single Nucleotide Polymorphism</a></li>
+<li class="chapter" data-level="2.2.3" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#linkage-disequilibrium-ld"><i class="fa fa-check"></i><b>2.2.3</b> Linkage Disequilibrium (LD)</a></li>
+<li class="chapter" data-level="2.2.4" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#ld-decays-over-generation"><i class="fa fa-check"></i><b>2.2.4</b> LD decays over generation</a></li>
+<li class="chapter" data-level="2.2.5" data-path="statistical-genetics-basic-background2.html"><a href="statistical-genetics-basic-background2.html#idential-by-descent-ibd"><i class="fa fa-check"></i><b>2.2.5</b> Idential By Descent (IBD)</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="segregation-analysis.html"><a href="segregation-analysis.html"><i class="fa fa-check"></i><b>2.3</b> Segregation Analysis</a></li>
+<li class="chapter" data-level="2.4" data-path="linkage-analysis.html"><a href="linkage-analysis.html"><i class="fa fa-check"></i><b>2.4</b> Linkage Analysis</a></li>
+<li class="chapter" data-level="2.5" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html"><i class="fa fa-check"></i><b>2.5</b> Single Variant Analysis</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#tag-snp"><i class="fa fa-check"></i><b>2.5.1</b> Tag SNP</a></li>
+<li class="chapter" data-level="2.5.2" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#ld-block-haploview"><i class="fa fa-check"></i><b>2.5.2</b> LD Block (Haploview)</a></li>
+<li class="chapter" data-level="2.5.3" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#association-analysis"><i class="fa fa-check"></i><b>2.5.3</b> Association analysis</a></li>
+<li class="chapter" data-level="2.5.4" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#genetic-association-studies"><i class="fa fa-check"></i><b>2.5.4</b> Genetic Association studies</a></li>
+<li class="chapter" data-level="2.5.5" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#genome-wide-association-study-gwas"><i class="fa fa-check"></i><b>2.5.5</b> Genome-wide association study (GWAS)</a></li>
+<li class="chapter" data-level="2.5.6" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#quality-control"><i class="fa fa-check"></i><b>2.5.6</b> Quality Control</a></li>
+<li class="chapter" data-level="2.5.7" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#snp-genotype-encoding"><i class="fa fa-check"></i><b>2.5.7</b> SNP genotype encoding</a></li>
+<li class="chapter" data-level="2.5.8" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#quantile-quantile-qq-plots"><i class="fa fa-check"></i><b>2.5.8</b> Quantile-Quantile (QQ) plots</a></li>
+<li class="chapter" data-level="2.5.9" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#manhattan-plots"><i class="fa fa-check"></i><b>2.5.9</b> Manhattan Plots</a></li>
+<li class="chapter" data-level="2.5.10" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#regional-plots"><i class="fa fa-check"></i><b>2.5.10</b> Regional Plots</a></li>
+<li class="chapter" data-level="2.5.11" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#실제-데이터-분석-및-해석"><i class="fa fa-check"></i><b>2.5.11</b> 실제 데이터 분석 및 해석</a></li>
+<li class="chapter" data-level="2.5.12" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#population-stratification"><i class="fa fa-check"></i><b>2.5.12</b> Population Stratification</a></li>
+<li class="chapter" data-level="2.5.13" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#genotype-imputation"><i class="fa fa-check"></i><b>2.5.13</b> Genotype Imputation</a></li>
+<li class="chapter" data-level="2.5.14" data-path="single-variant-analysis.html"><a href="single-variant-analysis.html#reference-data"><i class="fa fa-check"></i><b>2.5.14</b> Reference data</a></li>
+</ul></li>
+<li class="chapter" data-level="2.6" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html"><i class="fa fa-check"></i><b>2.6</b> NGS - Rare Variant Analysis</a>
+<ul>
+<li class="chapter" data-level="2.6.1" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#missing-heritability"><i class="fa fa-check"></i><b>2.6.1</b> Missing Heritability</a></li>
+<li class="chapter" data-level="2.6.2" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#post-gwas"><i class="fa fa-check"></i><b>2.6.2</b> Post-GWAS</a></li>
+<li class="chapter" data-level="2.6.3" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#why-rare-variant"><i class="fa fa-check"></i><b>2.6.3</b> Why rare variant?</a></li>
+<li class="chapter" data-level="2.6.4" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#snp-chips-can-detect-rare-variation"><i class="fa fa-check"></i><b>2.6.4</b> SNP-chips can detect rare variation?</a></li>
+<li class="chapter" data-level="2.6.5" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#ngs"><i class="fa fa-check"></i><b>2.6.5</b> NGS</a></li>
+<li class="chapter" data-level="2.6.6" data-path="ngs---rare-variant-analysis.html"><a href="ngs---rare-variant-analysis.html#rare-variants-analysis"><i class="fa fa-check"></i><b>2.6.6</b> Rare Variants Analysis</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="bitec---bioinformatics.html"><a href="bitec---bioinformatics.html"><i class="fa fa-check"></i><b>3</b> BITEC - Bioinformatics</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="r.html"><a href="r.html"><i class="fa fa-check"></i><b>3.1</b> R</a></li>
+<li class="chapter" data-level="3.2" data-path="python.html"><a href="python.html"><i class="fa fa-check"></i><b>3.2</b> Python</a></li>
+<li class="chapter" data-level="3.3" data-path="linux.html"><a href="linux.html"><i class="fa fa-check"></i><b>3.3</b> Linux</a></li>
+<li class="chapter" data-level="3.4" data-path="ngs-1.html"><a href="ngs-1.html"><i class="fa fa-check"></i><b>3.4</b> NGS</a></li>
+<li class="chapter" data-level="3.5" data-path="wes-wgs.html"><a href="wes-wgs.html"><i class="fa fa-check"></i><b>3.5</b> WES, WGS</a></li>
+<li class="chapter" data-level="3.6" data-path="advanced-python-programming.html"><a href="advanced-python-programming.html"><i class="fa fa-check"></i><b>3.6</b> Advanced Python Programming</a></li>
+<li class="chapter" data-level="3.7" data-path="advanced-r-programming.html"><a href="advanced-r-programming.html"><i class="fa fa-check"></i><b>3.7</b> Advanced R Programming</a></li>
+<li class="chapter" data-level="3.8" data-path="public-bio-big-data-and-cancer-immunotherapy.html"><a href="public-bio-big-data-and-cancer-immunotherapy.html"><i class="fa fa-check"></i><b>3.8</b> Public Bio Big Data and Cancer Immunotherapy</a></li>
+<li class="chapter" data-level="3.9" data-path="methodology-and-application-for-ngs.html"><a href="methodology-and-application-for-ngs.html"><i class="fa fa-check"></i><b>3.9</b> Methodology and Application for NGS</a></li>
+<li class="chapter" data-level="3.10" data-path="cancer-genome-and-multi-omic-bioinformatics.html"><a href="cancer-genome-and-multi-omic-bioinformatics.html"><i class="fa fa-check"></i><b>3.10</b> Cancer Genome and Multi-omic Bioinformatics</a></li>
+<li class="chapter" data-level="3.11" data-path="rna-seq-and-transcriptome-data-analysis.html"><a href="rna-seq-and-transcriptome-data-analysis.html"><i class="fa fa-check"></i><b>3.11</b> RNA-Seq and Transcriptome Data Analysis</a></li>
+<li class="chapter" data-level="3.12" data-path="advanced-ngs-data-analysis.html"><a href="advanced-ngs-data-analysis.html"><i class="fa fa-check"></i><b>3.12</b> Advanced NGS Data Analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="kobic---ngs-analysis.html"><a href="kobic---ngs-analysis.html"><i class="fa fa-check"></i><b>4</b> KOBIC - NGS analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html"><i class="fa fa-check"></i><b>4.1</b> 유전체 분석의 배경</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#fragmenting-dna"><i class="fa fa-check"></i><b>4.1.1</b> Fragmenting DNA</a></li>
+<li class="chapter" data-level="4.1.2" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#cloning"><i class="fa fa-check"></i><b>4.1.2</b> Cloning</a></li>
+<li class="chapter" data-level="4.1.3" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#sequencing-dna"><i class="fa fa-check"></i><b>4.1.3</b> Sequencing DNA</a></li>
+<li class="chapter" data-level="4.1.4" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#the-human-genome-project"><i class="fa fa-check"></i><b>4.1.4</b> The Human Genome Project</a></li>
+<li class="chapter" data-level="4.1.5" data-path="유전체-분석의-배경.html"><a href="유전체-분석의-배경.html#the-impact-of-hgp"><i class="fa fa-check"></i><b>4.1.5</b> The impact of HGP</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="ngs의-기초.html"><a href="ngs의-기초.html"><i class="fa fa-check"></i><b>4.2</b> NGS의 기초</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="ngs의-기초.html"><a href="ngs의-기초.html#precision-medicine"><i class="fa fa-check"></i><b>4.2.1</b> Precision medicine</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ngs의-기초.html"><a href="ngs의-기초.html#next-generation-sequencing"><i class="fa fa-check"></i><b>4.2.2</b> Next generation sequencing</a></li>
+<li class="chapter" data-level="4.2.3" data-path="ngs의-기초.html"><a href="ngs의-기초.html#raw-data-fastq"><i class="fa fa-check"></i><b>4.2.3</b> Raw data (FASTQ)</a></li>
+<li class="chapter" data-level="4.2.4" data-path="ngs의-기초.html"><a href="ngs의-기초.html#aligment-bam-file"><i class="fa fa-check"></i><b>4.2.4</b> Aligment (BAM file)</a></li>
+<li class="chapter" data-level="4.2.5" data-path="ngs의-기초.html"><a href="ngs의-기초.html#wgs-wes-and-targeted-sequencing"><i class="fa fa-check"></i><b>4.2.5</b> WGS WES, and targeted sequencing</a></li>
+<li class="chapter" data-level="4.2.6" data-path="ngs의-기초.html"><a href="ngs의-기초.html#target-enrichment-analysis"><i class="fa fa-check"></i><b>4.2.6</b> Target enrichment analysis</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html"><i class="fa fa-check"></i><b>4.3</b> NGS를 이용한 변이분석1</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#유전자-변이와-질병"><i class="fa fa-check"></i><b>4.3.1</b> 유전자 변이와 질병</a></li>
+<li class="chapter" data-level="4.3.2" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#유전자-변이의-종류"><i class="fa fa-check"></i><b>4.3.2</b> 유전자 변이의 종류</a></li>
+<li class="chapter" data-level="4.3.3" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#유전자-변이-찾는-방법-이전"><i class="fa fa-check"></i><b>4.3.3</b> 유전자 변이 찾는 방법 (이전)</a></li>
+<li class="chapter" data-level="4.3.4" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#microarray를-이용한-방법"><i class="fa fa-check"></i><b>4.3.4</b> Microarray를 이용한 방법</a></li>
+<li class="chapter" data-level="4.3.5" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#ngs를-이용한-유전자-변이-찾기"><i class="fa fa-check"></i><b>4.3.5</b> NGS를 이용한 유전자 변이 찾기</a></li>
+<li class="chapter" data-level="4.3.6" data-path="ngs를-이용한-변이분석1.html"><a href="ngs를-이용한-변이분석1.html#에러-정량화"><i class="fa fa-check"></i><b>4.3.6</b> 에러 정량화</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ngs를-이용한-변이분석2.html"><a href="ngs를-이용한-변이분석2.html"><i class="fa fa-check"></i><b>4.4</b> NGS를 이용한 변이분석2</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="ngs를-이용한-변이분석2.html"><a href="ngs를-이용한-변이분석2.html#germ-line-vs-somatic-mutation"><i class="fa fa-check"></i><b>4.4.1</b> Germ line vs somatic mutation</a></li>
+<li class="chapter" data-level="4.4.2" data-path="ngs를-이용한-변이분석2.html"><a href="ngs를-이용한-변이분석2.html#variant-allele-frequency-vaf"><i class="fa fa-check"></i><b>4.4.2</b> Variant Allele Frequency (VAF)</a></li>
+<li class="chapter" data-level="4.4.3" data-path="ngs를-이용한-변이분석2.html"><a href="ngs를-이용한-변이분석2.html#저빈도-돌연변이와-모자이크-변이"><i class="fa fa-check"></i><b>4.4.3</b> 저빈도 돌연변이와 모자이크 변이</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="ngs를-이용한-변이분석3.html"><a href="ngs를-이용한-변이분석3.html"><i class="fa fa-check"></i><b>4.5</b> NGS를 이용한 변이분석3</a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="ngs를-이용한-변이분석3.html"><a href="ngs를-이용한-변이분석3.html#ngs를-이용한-구조변이structural-variation-탐지"><i class="fa fa-check"></i><b>4.5.1</b> NGS를 이용한 구조변이(Structural variation) 탐지</a></li>
+<li class="chapter" data-level="4.5.2" data-path="ngs를-이용한-변이분석3.html"><a href="ngs를-이용한-변이분석3.html#paired-end-sequencing"><i class="fa fa-check"></i><b>4.5.2</b> Paired-end sequencing</a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="ngs-분석의-최적화.html"><a href="ngs-분석의-최적화.html"><i class="fa fa-check"></i><b>4.6</b> NGS 분석의 최적화</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="kogo.html"><a href="kogo.html"><i class="fa fa-check"></i><b>5</b> KOGO</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="equations.html"><a href="equations.html"><i class="fa fa-check"></i><b>5.1</b> Equations</a></li>
+<li class="chapter" data-level="5.2" data-path="theorems-and-proofs.html"><a href="theorems-and-proofs.html"><i class="fa fa-check"></i><b>5.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="5.3" data-path="callout-blocks.html"><a href="callout-blocks.html"><i class="fa fa-check"></i><b>5.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ksmo.html"><a href="ksmo.html"><i class="fa fa-check"></i><b>6</b> KSMO</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="publishing.html"><a href="publishing.html"><i class="fa fa-check"></i><b>6.1</b> Publishing</a></li>
+<li class="chapter" data-level="6.2" data-path="pages.html"><a href="pages.html"><i class="fa fa-check"></i><b>6.2</b> 404 pages</a></li>
+<li class="chapter" data-level="6.3" data-path="metadata-for-sharing.html"><a href="metadata-for-sharing.html"><i class="fa fa-check"></i><b>6.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Genetics with Bioinformatics</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="theorems-and-proofs" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Theorems and proofs<a href="theorems-and-proofs.html#theorems-and-proofs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Labeled theorems can be referenced in text using <code>\@ref(thm:tri)</code>, for example, check out this smart theorem <a href="theorems-and-proofs.html#thm:tri">5.1</a>.</p>
+<div class="theorem">
+<p><span id="thm:tri" class="theorem"><strong>Theorem 5.1  </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the <em>length</em> of the hypotenuse
+and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the <strong>other</strong> two sides, we have
+<span class="math display">\[a^2 + b^2 = c^2\]</span></p>
+</div>
+<p>Read more here <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html" class="uri">https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html</a>.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="equations.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="callout-blocks.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-blocks.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

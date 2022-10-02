@@ -1,0 +1,19 @@
+h1:bitec---rbioconductor BITEC - R/Bioconductor
+h2:introduction-for-microarrays Introduction for microarrays
+h3:transcriptome-analysis 
+h3:genome-analysis 
+h3:microarray-technologies Microarray Technologies
+h3:cdna-array-expression-level-numeric-assessment cDNA array: Expression level numeric assessment
+h3:probe-set Probe set
+h2:quality-control-in-microarrays Quality control in microarrays
+h3:microarray-analysis-procedure microarray analysis procedure
+h3:goals-of-microarray-studies Goals of microarray studies
+h3:deg-identification DEG identification
+h2:normalization-for-microarray-experiments Normalization for microarray experiments
+h3:variation-in-microarray-experiment Variation in microarray experiment
+h3:normalization-goals Normalization: Goals 
+h3:global-vs-intensity-dependent-normalization Global vs Intensity-dependent normalization
+h3:normalization-for-one-channel-slide Normalization for one channel slide
+h3:conclusion Conclusion
+h2:practice Practice
+

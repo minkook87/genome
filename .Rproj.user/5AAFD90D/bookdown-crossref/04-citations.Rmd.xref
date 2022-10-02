@@ -1,0 +1,32 @@
+h1:kobic---ngs-analysis KOBIC - NGS analysis
+h2:유전체-분석의-배경 유전체 분석의 배경
+h3:fragmenting-dna Fragmenting DNA
+h3:cloning Cloning
+h3:sequencing-dna Sequencing DNA
+h3:the-human-genome-project The Human Genome Project
+h3:the-impact-of-hgp The impact of HGP
+h2:ngs의-기초 NGS의 기초
+h3:precision-medicine Precision medicine
+h3:next-generation-sequencing Next generation sequencing
+h3:raw-data-fastq Raw data (FASTQ)
+h3:aligment-bam-file Aligment (BAM file)
+h3:wgs-wes-and-targeted-sequencing WGS WES, and targeted sequencing
+h3:target-enrichment-analysis Target enrichment analysis
+h2:ngs를-이용한-변이분석1 NGS를 이용한 변이분석1
+h3:유전자-변이와-질병 유전자 변이와 질병
+h3:유전자-변이의-종류 유전자 변이의 종류
+h3:유전자-변이-찾는-방법-이전 유전자 변이 찾는 방법 (이전)
+h3:microarray를-이용한-방법 Microarray를 이용한 방법
+h3:ngs를-이용한-유전자-변이-찾기 NGS를 이용한 유전자 변이 찾기
+h3:에러-정량화 에러 정량화
+h2:ngs를-이용한-변이분석2 NGS를 이용한 변이분석2
+h3:germ-line-vs-somatic-mutation Germ line vs somatic mutation
+h3:variant-allele-frequency-vaf Variant Allele Frequency (VAF)
+h3:저빈도-돌연변이와-모자이크-변이 저빈도 돌연변이와 모자이크 변이
+h2:ngs를-이용한-변이분석3 NGS를 이용한 변이분석3
+h3:ngs를-이용한-구조변이structural-variation-탐지 NGS를 이용한 구조변이(Structural variation) 탐지
+h3:paired-end-sequencing Paired-end sequencing
+h2:ngs-분석의-최적화 NGS 분석의 최적화
+h2:ngs의-응용-암유전체 NGS의 응용, 암유전체
+h2:ngs의-응용-암면역 NGS의 응용, 암면역
+

@@ -1,0 +1,231 @@
+# BITEC - R/Bioconductor
+
+본 자료는 BiTEC MOOC (http://bioinformatics.docuhut.com/) 자료를 참조하여 작성되었습니다.
+
+
+## Introduction for microarrays
+
+### **Transcriptome analysis**
+  - Gene discovery and empirical annotation
+  - Gene expression
+  - Alternative splicing
+  - RNA-binding protein (RBP) transcript target identification
+<br><br>
+
+### **Genome analysis**
+  - Protein-DNA interaction: ChIP-chip (Chromain immunoprecipitation chip)
+  - Genetic variation
+    - Genotypes & copy number variation (CNV)
+    - SNP chip
+    - CGH (Comparative genome hybridization)
+    - Genome resequencing, NGS
+  - DNA methylation: MeDIP-chip
+<br><br>
+
+### Microarray Technologies
+  - Shared idea: **'hybridization'** = pairing events between two single-stranded sequences
+  - Data type depends on microarray technology!
+  - Main steps in microarray experiments <br>
+    - Array fabrication <br>
+    - mRNA target preparation <br>
+    - Probe-target hybridization <br>
+    - Visual and numeric assessment of mRNA abundances
+<center>![](figures/01.png)</center><br>
+<center>![](figures/02.png)</center><br>
+
+### cDNA array: Expression level numeric assessment
+  - Summarize two raw images into a sinlge "gene expression measurement' for each dye (sample) in each spot
+  - Single-channel oligonucleotide arrays: Affymetrix GeneChip (commercial, relatively large number of genes represented, High reproducibility)
+  - Fabrication -> Hybridization -> Scan
+  - Expression level assessment (Raw data from scanner)
+    - Single image file per array
+    - Each probe pair consists of PM (perfect match) and MM (mismatch) ^[두가지 정보를 활용하여 정확한 mRNA 발현량을 확인하기 위해 사용하였으나 최근에는 oligonucleotide가 길어지면서 PM만 사용]
+<br><br>
+
+### Probe set
+  - Probe set이 하나의 유전자를 calling하기 위해 제작
+  - 여러개의 Probe를 가지고 하나의 유전자에 대한 summary를 할 수 있도록 제작
+  - cDNA의 경우 하나의 Probe가 하나의 유전자를 의미한다면 oligonucleotide의 경우 Probe set이 하나의 유전자를 의미하기 위해 사용
+  - Statistical issues (Preprocessing) ^[요새는 본 과정이 안정화되어있음]
+    - Experimental design
+    - Image analysis
+    - Normalization
+    - Quality analysis
+<center>![](figures/03.png)</center> <br>
+  
+*Affymetrix SNP chips (Genomic DNA)
+<center>![](figures/04.png)</center> <br>
+
+*Tiling arrays (array CGH, ChIP-chip, MeDIP-chip) ^[whole genome region을 조각조각 나눠서 분석, "어디에서"를 확인]
+*ChIP-chip
+<center>![](figures/05.png)</center> <br>
+
+## Quality control in microarrays
+
+### microarray analysis procedure
+<center>![](figures/06.png)</center> <br>
+
+  - Quality analysis in microarrays ^[실제 업체에서 신경쓰는 이슈로서 분석자 입장에서는 중요한 내용은 아님]
+  - Spot quality measures, Slide quality measures
+  - Reproducibility (produces the same results under the same experimental condition)
+<br><br>
+
+### Goals of microarray studies
+  - Identifying differential expressed genes (DEG)
+  - Gene grouping, subtype discovery clustering
+  - Outcome/subtype prediction classification
+  - Other goals <br>
+    - Genotyping, estimating DNA copy number <br>
+    - Two-dimensional clustering <br>
+    - Modeling biological pathways <br>
+    - Identifying protein binding sites <br>
+    - Identifying protein-DNA interaction
+<br><br>
+
+### DEG identification
+  - Find genes that are differentially expressed between two or more "treatments"
+    - Samples of breast cancer tumor tissue from 10 patients
+    - Samples of normal breast tissue from 10 patients
+    - Find genes that are expressed in tumor tissue and not in normal tissue, or vice versa
+    - Hoping to learn something about cancer
+  - Usual goal: a short list of candidate genes for further studies
+  - Common methods: t-test for each gene
+<br><br> 
+
+*Subtype discovery
+*Gene grouping
+*Outcome prediction
+
+## Normalization for microarray experiments
+
+### Variation in microarray experiment
+  - Biological variation
+  - Experimental variation
+  - Sampling variation
+  - Interpretation of the analysis
+<br><br>
+
+### Normalization: Goals ^[Normalization이 정말 필요한 것에 대한 이슈가 존재해왔음, Self-self hybridization]
+  - Control noises, errors, systematic variations
+  - Better detection of true biological variation between samples
+  - Fair comparison of multiple slides
+<br><br>
+
+### Global vs Intensity-dependent normalization
+  - Intensity-dependent location normalization using nonlinear regression (LOWESS)
+  - Scale normalization: Between-Slides
+<br><br>
+
+### Normalization for one channel slide
+  - Normalization with baseline (reference) slide
+    - Constant normalization
+    - MAS 5.0: LOESS normalization by baseline slide
+    - Invariant set normalization
+  - Normalization without baseline slide
+    - Cyclic normalization
+    - Mean cyclic normalization
+    - Quantile normalization
+  - Design specific normalization
+    - Spatial normalization
+<br><br>
+
+>**Assumption** <br>
+"Most genes don't change"<br>
+  - Mapping using quantile normalization or scaling is reasonable <br>
+  - Quantile normalization uses this more extensively than scaling <br>
+  - If this underlying assumption is doubtful, then using these methods is shaky
+ 
+<br>
+ 
+### Conclusion
+  - Many microarray software have implemented normalization tools
+  - Nonlinear LOWESS and quantile normalization are most popular
+  - when quality of slide is not good,, normalization can have severe effect on analysis
+  - As quality of slides improves, effect of normalization becomes reduced
+  - Do biologist agree that normalization is necessary in microarray analysis?
+  - Normalization may distort a real biological variation
+  - Normalization may suffer from over-fitting, loss of information, and etc
+  - Best normalization method may depend on experimental setting case by case
+<br><br>
+
+*Software for normalization
+
+  - MAS provided by Affymetrix
+  - RMA from www.bioconductor.org
+  - dChip from www.dchip.org
+
+## Practice
+
+```{r, eval=FALSE}
+# 절대경로 설정
+setwd()
+
+# 데이터 불러오기
+tmp_dat <- read.table("kidney_norm.txt", header = TRUE)
+```
+
+```{r, eval=FALSE}
+head(tmp_dat)
+
+boxplot(tmp_dat)
+```
+
+```{r, eval=FALSE}
+m <- data.matrix(kidney.norm[,1:8])
+
+head(m)
+
+# 유한한 값으로 써있지 않은 숫자는 NA로 변경
+m[!is.finite(m)] <- NA
+```  
+
+```{r, eval=FALSE}
+# 8마리의 쥐를 두 그룹으로 나눔
+group <- factor(rep(1:2, each=4))
+
+group
+
+# 첫번째 유전자에 대해서 두 그룹에 대한 t-test 시행
+tmp <- t.test(m[1,]~group)
+
+tmp
+
+names(t.test(m[1,]~group))
+
+tmp$p.value
+tmp$estimate
+
+ttest.p <- vector()
+ttest.est <- vector()
+```
+
+
+```{r, eval=FALSE}
+# 위 과정을 모든 유전자에 대해서 반복
+nrow(m) #5507
+
+for (i in 1:nrow(m)){
+  y <- as.numeric(m[i,])
+  if(length(which(is.na(y)))==0){ # 결측값이 없으면 수행
+    tmp <- t.test(y~group)
+    ttest.p[i] <- tmp$p.value
+    ttest.est[i] <- diff(tmp$estimate)
+  }
+}
+
+```  
+
+```{r, eval=FALSE}
+# t-test & volcano plot
+plot(ttest.est, -log(ttest.p), pch='*', cex=0.2, ylim=c(0,5), main="Volcano plot")
+
+# 다음의 which 함수를 이용하여 test p value가 0.05 이하인 값들의 index를 출력하세요
+index <- which(ttest.p < 0.05)
+
+# points 함수를 이용하여 plot 위에다 0.05 이하의 p value를 갖는 점들을 빨간 색으로 표시해보세요
+points(ttest.est[index], -log(ttest.p), col="red", ylim=c(0,5), cex=0.5)
+```
+
+
+
+

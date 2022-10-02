@@ -1,0 +1,395 @@
+# KOBIC - NGS analysis
+
+본 자료는 KOBIC (https://www.edwith.org/ptnr/kobic) 자료를 참조하여 작성되었습니다.
+
+## 유전체 분석의 배경
+
+<center>![](figures/07.png)</center>
+  - 유전학의 시작 - 멘델의 유전법칙 <br>
+  - The chemical structure of DNA (ATCG) <br>
+  - Sequencing methods
+<br><br>
+
+### Fragmenting DNA
+  - Each restriction enzyme recognizes a specific sequence of bases anywhere within the genome
+  - Recognition sites for restriction enzymes are usually 4 - 8 bp of double-strand DNA (Blunt ends, Sticky ends)
+  - Shorter recognition site = more number of shorter fragments
+
+**Distinguishing DNA fragments**
+<center>![](figures/08.png)</center> <br>
+<center>![](figures/09.png)</center> <br>
+
+### Cloning
+  - Molecular cloning: a means to purify a specific DNA fragment away from all other fragments and make many identical copies of the fragment
+  - Two basic steps:
+    - Insert DNA fragments into cloning vectors to make a recombinant DNA molecule
+    - Tansport recombinant DNA into living cell to be copied
+<br><br> 
+
+### Sequencing DNA
+  - Sequencing DNA requires: sufficient of DNAs, DNAs should be one clone
+  - Starting with recombinant plasmid: Design primer to extract only DNA sequences of interest
+
+**Sanger Sequencing** ^[일부러 불량한 ATCG를 넣어 길이별로 합성한 후 길이별로 읽어들이는 방식]
+<center>![](figures/10.png)</center> <br> 
+
+### The Human Genome Project
+  - 1990 ~ 2003 (13 years), $3 billion dollars ^[한화로 3조원]
+  - Shotgun sequencing (전체 DNA를 랜덤하게 조각 내서 무작위로 sequencing하고 이후 컴퓨터 알고리즘을 활용하여 이어 붙임) ^[NGS 발전을 위한 근간이 됨]
+  - Completion of HGP
+    - The length of human genome is ~3 billion bp (base-pair)
+    - There are ~20,000 genes (currently > 30,000) in human genome
+    - Protein coding region is only 1~2% of the whole genome
+    - ~40% of human genome is repeat sequence ^[나머지 부위들을 junk DNA라고 했으나, 10년 쯤 뒤에 이런 부분에도 중요한 기능을 하는 유전자가 존재하는 것을 알게됨]
+<center>![](figures/11.png)</center> <br> 
+
+### The impact of HGP
+  - We know the entire map of human genome
+  - We know which genomic site is responsible for phenotype
+  - We can easily map variant into gene functions
+  - It is the basis for massive human sequencing and precision medicine
+
+  
+## NGS의 기초
+
+  - 유전자 분석을 위한 기술을 한사람이 아닌 모두에게 적용하기 위해 NGS 기술이 개발됨
+
+### Precision medicine
+<center>![](figures/12.png)</center>
+
+  - Sequencing is a key to the precision medicine
+  - Fast, accurate, cheap sequencing technologies
+  - Can NGS detect all kinds of genomic variants?
+<br><br>
+
+### Next generation sequencing
+  - No cloning: DNA to be sequenced is used to construct a library of fragments that have synthetic DNAs added covalently to each fragment end by use of DNA ligase
+  - Amplification can be done in parallel
+  - Sequencing can be done in parallel
+
+**Illumina Sequencing** ^[Random DNA fragment을 adapter에 붙여서 amplification - same DNA가 cluster amplification]
+<center>![](figures/13.png)</center>
+<center>![](figures/14.png)</center>
+<center>![](figures/15.png)</center>
+<center>![](figures/16.png)</center>
+<br><br>
+
+**Ion Torrent Sequencing**
+<center>![](figures/17.png)</center>
+<br><br>
+
+**Pacbio SMRT sequencing** (=3rd generation sequencing, no PCR)
+<center>![](figures/18.png)</center>
+<br><br>
+
+**Nanopore sequencing**
+<center>![](figures/19.png)</center>
+<br><br>
+
+
+### Raw data (FASTQ)
+  - 4줄 단위로 반복
+    - 첫번째줄은 "@" 로 시작, read ID
+    - 두번째줄은 읽어낸 read sequencing
+    - 세번째줄은 "+"
+    - 네번째줄은 두번째줄과 동일한 길이, 염기서열과 1:1로 매칭, 읽어낸 염기의 정확성
+<center>![](figures/20.png)</center> 
+  
+  - 현재 데이터 형태로는 사실 아무것도 할 수 없음
+  - 일단 어느 위치에서 이 데이터가 왔는 지 부터 확인
+  - Reference genome (from HGP)을 활용하여 mapping back to genome
+  - Where is this sequence in human genome?
+<br><br>
+
+### Aligment (BAM file)
+  - FASTQ + 위치정보
+  - 어느 염색체, 어느 위치인지 정보를 포함
+  - IGV (Integrative Genomics Viewer): BAM파일이 어떠한 형태로 Reference genome에 붙어 있는가?
+  - Reference genome와 비교하여 다른 부분이 있는가?
+
+<center>![](figures/21.png)</center> 
+<center>![](figures/22.png)</center> 
+
+  - read depth: the number of reads that pass the region
+  - 같은 자리를 여러번 읽음으로써 오류를 최대한 줄이는 방식
+  - In a whole sample
+    - The average number read depth
+    - R.D = N.read * read_length (total read_bp) / genome.length
+    - if we have 100,000,000 reads of 200 bps for whole genome sequencing (R.D = 6.66)
+    - for exome sequencing (R.D = 400) 
+<br><br>
+
+### WGS WES, and targeted sequencing
+<center>![](figures/23.png)</center> 
+
+  - WES vs Panel
+    - Advantages of targeting all exons
+      - Discovery based research
+      - "you don't know what genes you need to target"
+      - WES is the obvious choice
+      - Commercially available (no customized or designed)
+      - Standard servie ($550-800) for 100-150x mean
+     
+    - Advantages of targeting gene panels ^[일반적으로 병원에서 사용하는 검사]
+      - Ideal for analyzing specific mutations or genes (association wi disease)
+      - Higher depth (2000-10000x)
+      - High depth sequencing enables the identification of rare variants
+      - Can be customized for different samples types
+      - Lower input amounts can be used with targeted gene panels (1ng vs 100ng with WES)
+      - Can be customized to only include genomic regions of interest
+      - Gene panel workflows are a lot simpler (much less time)
+      - You can process thousands of samples on a single sequencing run. Targeted gene panels can be run at a higher throughput and are often more cost-effective than whole exome sequencing
+   
+<center>![](figures/24.png)</center> 
+<center>![](figures/25.png)</center>   
+<br><br> 
+
+### Target enrichment analysis
+  - PCR
+  - Amplicon-based assay
+  - Hybridization capture-based assay
+ 
+<center>![](figures/26.png)</center> 
+<br>
+
+> **Summary** <br>
+1. NGS sequencing은 인간 전체 유전체를 빠르고 값싸게 읽을 수 있는 수단을 제공한다. <br>
+2. NGS는 no-cloning, parallel amplification, parallel sequencing을 통하여 이루어진다. <br>
+3. Raw read - aligned read (to reference) 를 통하여 원본 read의 위치를 찾을 수 있다. <br>
+4. 목적에 따라 전체 유전체 영역, 일부 유전체 영역을 선택하여 진행할 수 있다.
+
+## NGS를 이용한 변이분석1
+
+### 유전자 변이와 질병
+<center>![](figures/27.png)</center> 
+<br><br>
+
+### 유전자 변이의 종류
+<center>![](figures/28.png)</center> 
+<br><br>
+
+### 유전자 변이 찾는 방법 (이전)
+  - PCR 및 Sanger Sequencing 이용
+<center>![](figures/29.png)</center> <br>
+
+### Microarray를 이용한 방법
+<center>![](figures/30.png)</center> <br>
+<br><br>
+
+### NGS를 이용한 유전자 변이 찾기
+  - NGS data (FASTQ)
+  - Alignment
+
+<center>![](figures/31.png)</center> <br>
+<center>![](figures/32.png)</center> <br>
+<center>![](figures/33.png)</center> <br>
+<center>![](figures/34.png)</center> <br>
+<center>![](figures/35.png)</center> <br>
+
+  - 왜 여러번 읽어야 하는가 (read depth)
+    - 관찰은 에러를 동반한다
+      - 시퀀스 기계 상에서의 에러 (basecall error)
+      - Alignment 과정에서의 에러 (mapping error)
+      - 기타 에러 (library prep error)
+    - 99%의 정확성을 가졌을 때
+      - 전체 유전체 영역의 1% 만큼 틀리면
+      - ~30 million false SNPs for whole genome
+      - ~500k false SNPs for whole exome
+    - 전체 영역의 read depth의 평균을 계산
+    
+<center>![](figures/36.png)</center> 
+<br><br>
+ 
+### 에러 정량화
+  - basecall error
+<center>![](figures/37.png)</center><br>
+ 
+  - Phred like mapping quality score
+<center>![](figures/38.png)</center><br>
+
+  - 얼마나 합리적으로 유전자를 예측할 수 있을까? 
+<center>![](figures/39.png)</center><br>  
+<center>![](figures/40.png)</center><br>  
+<center>![](figures/41.png)</center><br> 
+<center>![](figures/42.png)</center><br>  
+<center>![](figures/43.png)</center><br>
+<center>![](figures/44.png)</center><br>
+<center>![](figures/45.png)</center><br>
+ 
+  - 얻어진 데이터를 가지고 전체 데이터가 무엇일지 계산할 수 있음. 
+  - 어떤 경우가 가장 손실 없이 그럴듯한 결과인가?
+  - Filtering variants
+  - The variant call format (VCF)
+<center>![](figures/46.png)</center><br>
+
+> **Summary** <br>
+1. 다양한 유전자 변이가 질병을 일으킴 (단일염기 변이, 삽입, 결손) <br>
+2. 전통적인 방법으로 유전자 변이 탐지 가능 (PCR/Sanger, Microarray) <br>
+3. NGS를 이용한 변이 탐지 <br>
+ - 시료가 가지고 있는 allele의 관찰결과(read)의 집합을 이용 <br>
+ - 관찰 결과의 신뢰성(confidence)를 quality를 이용하여 정량화 <br>
+ - 정량화된 에러와 관찰 결과를 통하여 가장 가능성 높은 유전형(genotype)을 보고
+
+## NGS를 이용한 변이분석2
+
+### Germ line vs somatic mutation
+  - 암에서의 체세포 변이 (체세포 변이의 누적)
+  - Extending to somatic: Genotyping (paired samples)
+
+<center>![](figures/47.png)</center><br>
+<center>![](figures/51.png)</center><br>
+<center>![](figures/48.png)</center><br>
+<center>![](figures/49.png)</center>
+<br><br>
+
+### Variant Allele Frequency (VAF)
+  - VAF는 특정 위치(locus)에 대립 유전자가 나타는 빈도
+  - 하나의 암은 다양한 유전자 변이를 가지고 있음
+  - 그에 따라 VAF가 다양하게 나타남
+<center>![](figures/50.png)</center><br>
+<center>![](figures/52.png)</center><br>
+
+*변이를 찾는 다양한 방법에는 JointSNVMix, MuTect 등이 있음
+<br><br>
+
+### 저빈도 돌연변이와 모자이크 변이
+  - 체세포 돌연변이의 가장 큰 문제가 VAF가 다양하게 나타날 수 있다는 점임
+<center>![](figures/53.png)</center><br>
+
+  - 저빈도 변이 (액체 생검): 매우 어려운 분석, Sequencing error와 구분이 잘 안됨
+  - **단일세포 유전체 시퀀싱**
+<center>![](figures/54.png)</center><br> 
+ 
+> **Summary** <br>
+1. 체세포변이는 생식세포 변이와 달리 수정 후 생기는 변이 <br>
+2. 부위에 따라 변이가 특이적으로 존재하며 같은 개체 내 다른 부분과 비교하여 탐지 <br>
+3. VAF가 다양함 <br>
+4. 저빈도 및 모자이크 변이 <br>
+ - 시료 내에 매우 낮은 비율로 존재 <br>
+ - 발생 과정, 액체 생검, heteroplasmy 등 <br>
+ - 탐지가 어려움: 다양한 기술 개발 중
+ 
+ 
+## NGS를 이용한 변이분석3
+
+### NGS를 이용한 구조변이(Structural variation) 탐지
+
+<center>![](figures/126.png)</center><br>
+
+  - Structural variations (SVs): Genomic rearrangements that affect >50bp of sequence ^[구조변이 탐지가 어렵지만 NGS를 통해 찾을 수 있음]
+    - Large deletions (BRCA1 deletion)
+    - Inversions (EML4-ALK, explains 6-7% of NSCLC)
+    - Duplication (ERBB2/HER2 amplification, an important driver for breast cancer)
+    - Repeat elements
+
+<center>![](figures/127.png)</center><br>
+<center>![](figures/128.png)</center><br>
+
+### Paired-end sequencing
+
+<center>![](figures/129.png)</center><br>
+
+  - Paired end reads for SV finding
+<center>![](figures/130.png)</center><br>
+<center>![](figures/131.png)</center><br>
+
+  - Methods for SV detection
+    - Read depth
+      - Assume a random distribution in mapping depth
+      - Significantly higher depth for duplicated regions
+      - Significantly reduced depth for deleted regions
+    - Read pair
+      - Assess the span and orientation of paired end reads
+    - Split Read
+      - Define breakpoints of SVs using split-sequence-read signature (broken alignment)
+    - Assembly
+      - Assemble and reconstruct the whole genome of sample DNA
+
+<center>![](figures/132.png)</center><br>
+<center>![](figures/133.png)</center><br>
+<center>![](figures/134.png)</center><br>
+<center>![](figures/135.png)</center><br>
+<center>![](figures/136.png)</center><br>
+<center>![](figures/137.png)</center><br>
+
+> **Summary** <br>
+1. NGS를 이용한 구조변이 탐지 <br>
+2. Paired-end sequencing NGS의 read orientation을 이용하여 시료가 가지고 있는 구조 변이들을 탐지할 수 있다 <br>
+3. Read depth, split-read, assembly 등의 정보를 추가로 이용하여 더욱 정확한 탐지를 수행할 수 있다 <br>
+4. 단, non-specific region 등 다양한 어려움 때문에 틀리기 쉬운 변이들이 존재하므로, 추가 실험 등 검증을 위한 작업이 이루어지는 것이 좋다
+
+## NGS 분석의 최적화
+
+  - NGS를 이용하여 신뢰성 있는 최적 분석 파이프라인 구성하기
+
+<center>![](figures/138.png)</center><br>
+<center>![](figures/139.png)</center><br>
+<center>![](figures/140.png)</center><br>
+
+> **Summary** <br>
+1. NGS를 이용한 변이 탐지에서의 위험성 및 해결 방안 <br>
+2. NGS 변이를 탐지하는 것은 단순한 파이프라인의 실행이 아님 <br>
+3. 사람의 실수, NGS 생산 과정에서의 DNA 손상, 시료의 비순수성 및 오염, 플랫폼 특이적인 원인 등 다양한 위험 요소가 존재 <br>
+4. 정확한 NGS 분석, 특히 환자의 유전체 분석과 같은 실수가 용납되지 않는 분석에서는 모든 위험요소를 고려한 파이프라인 구성이 필수
+
+## NGS의 응용, 암유전체
+
+  - Cancer is a genetic disease, caused by a series of mutations
+  - Accumulation of genetic variations in hallmark genes cause cancer
+  - Finding of the hallmarks of cancer
+  - Cancer cells have a higher rate of mutation
+    - Enzymatic systems that repair DNA damage or mistakes during replication are often defective
+    
+<center>![](figures/141.png)</center><br>
+
+  - Mutation burden
+    - Tumor mutation burden: measurements of mutations carried by tumor cells
+    - Microsatellite Instability (MSI)
+      - MSI is the condition of genetic hypermutability (predisposition to mutation) that results from impaired DNA mismatch repair (MMR)
+      
+<center>![](figures/142.png)</center><br>
+
+  - Mutational signature
+  - 변이의 중요성 분석
+    - Significantly mutated genes
+    - Genes under positive selection, either in individual or multiple tumour types, tend to display higher mutation frequencies above background
+  - 변이의 특수성 분석
+  - 암의 클론성 분석
+  
+> **Summary** <br>
+1. 암유전체에 NGS를 적용하여 많은 정보를 알아낼 수 있음 <br>
+  - 암을 일으키는 변이들 <br>
+  - 암 내에 존재하는 변이의 수 <br>
+  - 암 내에 존재하는 변이의 특성 <br>
+  - 암 변이를 만들어낸 원인 <br>
+  - 암 내의 subgroup의 존재 <br>
+  - 중요한 유전자의 변이 <br>
+  - 암의 clonality
+  
+## NGS의 응용, 암면역
+  - Cancer Immunotherapy
+    - Exploit host's immune system to treat cancer
+    - Generate or augment an immune response against cancer
+
+<center>![](figures/143.png)</center><br>    
+
+  - Adaptive Immunity / T-cell activation
+  - Who can benefit from checkpoint inhibitor?
+    - Tumor mutation burden
+    - MHC (Major histocompatibility complex)
+    - HLA (Human leukocyte antigen)
+  
+> **Summary** <br>
+1. NGS를 적용하여 암의 면역원성에 대한 분석을 할 수 있음 <br>
+  - **암 면역치료를 위한 다양한 분석들** <br>
+    - Tumor mutation burden <br>
+    - HLA typing 및 변이 <br>
+    - Somatic mutation - neopeptide - neoantigen 후보 예측 <br>
+  - **개인맞춤 암 면역치료를 위해서는 유전체 분석이 필수적** <br>
+    - 신항원 <br>
+    - 암 면역환경에 대한 정보 제공 <br>
+  
+  
+  
+  
+

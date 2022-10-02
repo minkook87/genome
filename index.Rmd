@@ -1,0 +1,29 @@
+--- 
+title: "Genetics with Bioinformatics"
+author: "Minkook Son"
+date: "ver 1.0, 2022-07-25"
+output:
+  bookdown::gitbook:
+    split_by: section
+  bookdown::pdf_book: default
+documentclass: book
+bibliography:
+- book.bib
+- packages.bib
+description: null
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+site: bookdown::bookdown_site
+---
+
+# About {-}
+
+본 서적은 동아대학교 의과대학 **유전학 스터디**를 위해 제작된 **수업용 자료** 입니다.
+다양한 자료들의 내용을 참조하여 작성된 자료이니, 허락없이 배포하지 말아주시기 바랍니다.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
